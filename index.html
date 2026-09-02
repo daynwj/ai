@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayn Johnson — AI Practice</title>
+<meta name="description" content="How Dayn Johnson builds AI systems: architecture at design time, a living grounding source instead of a growing instruction set, and rules written out of real failures.">
+<meta property="og:title" content="Dayn Johnson — AI Practice">
+<meta property="og:description" content="Nothing that changes should live in the instructions.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosso:#E10600;
+    --rosso-deep:#B0050A;
+    --blue:#0033A0;
+    --ink:#14161A;
+    --mute:#5B6066;
+    --line:#E4E6EA;
+    --paper:#FFFFFF;
+    --backdrop:#EEF0F3;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--backdrop);
+    line-height:1.5;
+    padding:30px 16px 60px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    width:100%;max-width:1000px;margin:0 auto;
+    background:var(--paper);
+    box-shadow:0 24px 60px -28px rgba(20,22,26,.45);
+  }
+  a:focus-visible,button:focus-visible{outline:3px solid var(--rosso);outline-offset:2px;}
+
+  .header{position:relative;padding:58px 58px 42px;border-bottom:1px solid var(--ink);}
+  .header::before{content:"";position:absolute;left:0;top:58px;bottom:42px;width:7px;background:var(--rosso);}
+  .name{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:44px;letter-spacing:-1.3px;line-height:1;
+  }
+  .name .dot{color:var(--rosso);}
+  .thesis{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:34px;line-height:1.18;letter-spacing:-.7px;
+    margin-top:26px;max-width:17ch;
+  }
+  .standfirst{
+    font-size:16.5px;line-height:1.64;color:#2b2e33;
+    margin-top:20px;max-width:62ch;
+  }
+  .links{
+    display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+  }
+  .links a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;}
+  .links a:hover{color:var(--rosso-deep);border-bottom-color:var(--rosso-deep);}
+
+  main{padding:0 58px 58px;}
+  section{padding-top:54px;}
+  section + section{border-top:1px solid var(--line);margin-top:54px;padding-top:54px;}
+
+  .sectlabel{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    letter-spacing:.09em;color:var(--rosso-deep);font-weight:700;
+    margin-bottom:16px;
+  }
+  h2{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:29px;line-height:1.18;letter-spacing:-.6px;
+    max-width:25ch;margin-bottom:20px;
+  }
+  .prose p{font-size:16px;line-height:1.7;color:#2b2e33;max-width:68ch;}
+  .prose p + p{margin-top:15px;}
+  .prose em{font-style:italic;}
+
+  figure{margin:34px 0 0;}
+  figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);}
+
+
+  .deep{margin-top:20px;font-size:14.5px;}
+  .deep a{color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1.5px solid rgba(0,51,160,.3);}
+  .deep a:hover{border-bottom-color:var(--blue);}
+  .receipt{
+    margin-top:30px;border-left:5px solid var(--rosso);
+    background:rgba(225,6,0,.05);padding:16px 20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:14.5px;font-weight:500;color:var(--ink);
+    max-width:60ch;
+  }
+
+  .close{background:var(--blue);color:#fff;padding:50px 58px 54px;}
+  .close h2{color:#fff;max-width:26ch;}
+  .close p{font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.84);max-width:64ch;}
+  .close p + p{margin-top:15px;}
+  .close .last{
+    color:#fff;font-weight:600;font-size:18px;margin-top:26px;
+    font-family:'Space Grotesk',sans-serif;line-height:1.4;max-width:30ch;
+  }
+
+  .foot{
+    padding:26px 58px 30px;border-top:1px solid var(--line);
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mute);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .foot a{color:var(--mute);}
+
+  @media(max-width:680px){
+    body{padding:14px 10px 40px;}
+    .header{padding:34px 22px 28px;}
+    .header::before{top:34px;bottom:28px;width:6px;}
+    .name{font-size:33px;}
+    .thesis{font-size:25px;max-width:none;}
+    main{padding:0 22px 40px;}
+    h2{font-size:23px;}
+    .close{padding:34px 22px 38px;}
+    .foot{padding:22px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="name">Dayn Johnson<span class="dot">.</span></div>
+    <h1 class="thesis">Nothing that changes should live in the instructions.</h1>
+    <p class="standfirst">I build the AI and lifecycle layer a customer success team runs on. What I've landed on after four years of it: architect the system once, keep the moving parts somewhere they're allowed to move, and let runtime be the easy part. Context engineering, not prompt design.</p>
+    <div class="links">
+      <a href="https://daynwj.github.io/resume">Resume</a>
+      <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a>
+      <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="sectlabel">How I got here</div>
+      <h2>I used ChatGPT like a better Google, and kept going back to Google.</h2>
+      <div class="prose">
+        <p>That went on for about a year and a half. Every time I tried it I ended up back where I started, because Google was what I knew and it was easy. It also never touched the shape of the job I actually did — we had no AI tooling at work at all, so everything I learned early on, I learned at home.</p>
+        <p>July 2025 is the date I can point to. My manager at Recorded Future sent me a Reddit post about using Gemini's Gem Builder to interview <em>me</em> — to have it ask the questions instead of waiting for instructions. That's when I started telling it who I was: my background, my expertise, my writing samples, my resume. The model didn't get smarter. It got context.</p>
+        <p>The next six months I built constantly. A customer success email planner trained on hundreds of the lifecycle emails we'd actually sent. Something to get the cursor moving on a webinar invitation. A place to log what I'd shipped so I wasn't reconstructing a quarter from memory at review time. I'd hand it a sheet of email performance and get the aggregates back instead of doing month-over-month by hand.</p>
+        <p>Then the thing that made it useful broke it. I'd given it so much about me that it started using all of it, everywhere. I cook with cast iron, so it brought up cast iron constantly. I play Destiny, so everything turned into a Destiny metaphor. That isn't hallucination — it's context applied where nobody asked for it, and it's the failure mode I design against now.</p>
+        <p>February 2026 I moved to Claude and started building projects, and what changed was that things persisted. Now Claude writes the research prompts, Gemini runs the deep research, and Claude synthesizes it, checks the sources, and cold-reads its own conclusions before any of it lands in an instruction set.</p>
+      </div>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Timeline from AI skeptic in early 2023 to a load-bearing practice in 2026">
+  <rect width="1000" height="560" fill="#FFFFFF"/>
+
+  <line x1="60" y1="230" x2="940" y2="230" stroke="#E4E6EA" stroke-width="2"/>
+  <line x1="215" y1="230" x2="400" y2="230" stroke="#E10600" stroke-width="3"/>
+
+  <!-- 1 — early 2023 -->
+  <circle cx="105" cy="230" r="7" fill="#0033A0"/>
+  <text x="105" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">EARLY 2023</text>
+  <text x="105" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Skeptic</text>
+  <text x="105" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="105" dy="0">A better Google. I</tspan>
+    <tspan x="105" dy="19">kept going back to</tspan>
+    <tspan x="105" dy="19">actual Google.</tspan>
+  </text>
+  <text x="105" y="400" text-anchor="middle" font-size="11.5" fill="#9AA1AA" font-style="italic">
+    <tspan x="105" dy="0">No AI tooling at work.</tspan>
+    <tspan x="105" dy="17">All of it personal.</tspan>
+  </text>
+
+  <!-- 2 — the turn -->
+  <circle cx="305" cy="230" r="15" fill="#E10600"/>
+  <circle cx="305" cy="230" r="24" fill="none" stroke="#E10600" stroke-width="1.5" opacity="0.35"/>
+  <text x="305" y="130" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14161A">I let it interview me</text>
+  <text x="305" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#E10600" letter-spacing="0.6">JULY 2025 — THE TURN</text>
+  <text x="305" y="284" text-anchor="middle" font-size="13" font-weight="600" fill="#14161A">
+    <tspan x="305" dy="0">A Reddit post on having</tspan>
+    <tspan x="305" dy="19">Gemini ask the questions.</tspan>
+  </text>
+  <text x="305" y="342" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="305" dy="0">Background, expertise,</tspan>
+    <tspan x="305" dy="19">writing samples, resume.</tspan>
+  </text>
+  <text x="305" y="400" text-anchor="middle" font-size="11.5" fill="#9AA1AA" font-style="italic">
+    <tspan x="305" dy="0">It didn't get smarter.</tspan>
+    <tspan x="305" dy="17">It got context.</tspan>
+  </text>
+
+  <!-- 3 — next six months -->
+  <circle cx="520" cy="230" r="7" fill="#0033A0"/>
+  <text x="520" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">NEXT SIX MONTHS</text>
+  <text x="520" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Building constantly</text>
+  <text x="520" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="520" dy="0">A lifecycle email planner</tspan>
+    <tspan x="520" dy="19">trained on hundreds of</tspan>
+    <tspan x="520" dy="19">real sends.</tspan>
+  </text>
+  <line x1="520" y1="374" x2="520" y2="450" stroke="#E10600" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="378" y="450" width="284" height="76" fill="#FFF4F3" stroke="#E10600" stroke-width="1"/>
+  <rect x="378" y="450" width="4" height="76" fill="#E10600"/>
+  <text x="398" y="476" font-size="10.6" font-weight="700" fill="#B0050A" letter-spacing="0.5">THEN THE SAME THING BROKE IT</text>
+  <text x="398" y="498" font-size="11.4" fill="#B0050A">
+    <tspan x="398" dy="0">So much context it started using it</tspan>
+    <tspan x="398" dy="16">where nobody asked. Cast iron. Destiny.</tspan>
+  </text>
+
+  <!-- 4 — feb 2026 -->
+  <circle cx="725" cy="230" r="7" fill="#0033A0"/>
+  <text x="725" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">FEBRUARY 2026</text>
+  <text x="725" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Things persisted</text>
+  <text x="725" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="725" dy="0">Moved to Claude and</tspan>
+    <tspan x="725" dy="19">started building projects</tspan>
+    <tspan x="725" dy="19">that remember.</tspan>
+  </text>
+
+  <!-- 5 — now -->
+  <circle cx="900" cy="230" r="7" fill="#0033A0"/>
+  <text x="900" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">NOW</text>
+  <text x="900" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Load-bearing</text>
+  <text x="900" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="900" dy="0">One living knowledge</tspan>
+    <tspan x="900" dy="19">base. Every project</tspan>
+    <tspan x="900" dy="19">reads the same source.</tspan>
+  </text>
+</svg></figure>
+    </section>
+
+    <section>
+      <div class="sectlabel">Design time vs. runtime</div>
+      <h2>The harder you work at design time, the lighter the model you need at runtime.</h2>
+      <div class="prose">
+        <p>I don't want to update an instruction set every time something changes. So the only things in mine are the parts that don't move: how the system works, where to go looking, the rules it can't break. Everything else lives in a grounding source it reads when it needs to and writes back to when something changes. Notion for me, SharePoint for the knowledge system I stood up at Henry Schein One, Drive or a notebook if you're on Gemini.</p>
+        <p>There's still reasoning happening at runtime. The difference is that the rules already decided it. The instructions and the grounding source together supply the logic, so the model is applying a decision rather than making a fresh one and hoping it matches the last one.</p>
+        <p>The small version: I store one date of birth and have the system calculate age against today. I've never edited that field again.</p>
+        <p>Where it clicked was a business-review prep prompt I'd shipped to the Gainsight Copilot library at Henry Schein One. It re-reasoned the whole script on every run, so formatting drifted and talking points dropped, and CSMs were re-prompting to get something complete. I'd made their job harder, so I axed it. Our BI and data teams and I rebuilt the logic into a Domo dashboard — enter an account, get the same complete output every time.</p>
+        <p>The home version made the cost argument for me. Designing the recipe-card system took a few hours of back-and-forth on a heavy model: writing the rules, breaking it, writing more rules. That horsepower got spent once. The cards get built on a much lighter model now, and they're still detailed enough to cook from. That math matters a lot more when the thing you're building gets used by fifty CSMs instead of one person.</p>
+      </div>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Diagram contrasting heavy design-time architecture with light rule-driven runtime">
+  <rect width="1000" height="700" fill="#FFFFFF"/>
+
+  <text x="60" y="44" font-size="11.5" font-weight="700" fill="#E10600" letter-spacing="1.4">DESIGN TIME — DO THIS ONCE, AND DO IT HARD</text>
+  <text x="672" y="44" font-size="11.5" font-weight="700" fill="#E10600" letter-spacing="1.4">RUNTIME</text>
+
+  <!-- instructions -->
+  <rect x="60" y="62" width="288" height="266" fill="#F4F6F8" stroke="#0033A0" stroke-width="2"/>
+  <rect x="60" y="62" width="288" height="5" fill="#0033A0"/>
+  <text x="84" y="102" font-size="17" font-weight="700" fill="#14161A">The instructions</text>
+  <text x="84" y="124" font-size="11.5" font-weight="700" fill="#0033A0" letter-spacing="0.4">ONLY WHAT NEVER CHANGES</text>
+  <text x="84" y="158" font-size="13" fill="#2b2e33">
+    <tspan x="84" dy="0">How the system works</tspan>
+    <tspan x="84" dy="24">Where to go to look things up</tspan>
+    <tspan x="84" dy="24">The rules it can't break</tspan>
+    <tspan x="84" dy="24">What to do when it's unsure</tspan>
+  </text>
+  <line x1="84" y1="258" x2="324" y2="258" stroke="#D8DCE2" stroke-width="1"/>
+  <text x="84" y="284" font-size="12.4" fill="#5B6066" font-style="italic">
+    <tspan x="84" dy="0">Store the date of birth once.</tspan>
+    <tspan x="84" dy="18">Calculate the age every time.</tspan>
+  </text>
+
+  <!-- grounding -->
+  <rect x="360" y="62" width="288" height="266" fill="#F4F6F8" stroke="#0033A0" stroke-width="2"/>
+  <rect x="360" y="62" width="288" height="5" fill="#0033A0"/>
+  <text x="384" y="102" font-size="17" font-weight="700" fill="#14161A">The grounding source</text>
+  <text x="384" y="124" font-size="11.5" font-weight="700" fill="#0033A0" letter-spacing="0.4">EVERYTHING THAT MOVES</text>
+  <text x="384" y="158" font-size="13" fill="#2b2e33">
+    <tspan x="384" dy="0">Facts that go stale</tspan>
+    <tspan x="384" dy="24">Preferences that shift</tspan>
+    <tspan x="384" dy="24">Anything I'd otherwise edit</tspan>
+    <tspan x="384" dy="24">The system writes here too</tspan>
+  </text>
+  <line x1="384" y1="258" x2="624" y2="258" stroke="#D8DCE2" stroke-width="1"/>
+  <text x="384" y="284" font-size="12.4" fill="#5B6066" font-style="italic">
+    <tspan x="384" dy="0">Notion for me. SharePoint at work.</tspan>
+    <tspan x="384" dy="18">Drive if you're on Gemini.</tspan>
+  </text>
+
+  <!-- runtime -->
+  <rect x="672" y="62" width="268" height="266" fill="#FFFFFF" stroke="#E4E6EA" stroke-width="2"/>
+  <text x="696" y="102" font-size="17" font-weight="700" fill="#14161A">Look up. Decide.</text>
+  <text x="696" y="124" font-size="11.5" font-weight="700" fill="#5B6066" letter-spacing="0.4">THE EASY PART, EVERY TIME</text>
+  <text x="696" y="158" font-size="13" fill="#5B6066">
+    <tspan x="696" dy="0">There is still reasoning here.</tspan>
+    <tspan x="696" dy="24">The difference is that the</tspan>
+    <tspan x="696" dy="24">rules already decided it.</tspan>
+  </text>
+  <line x1="696" y1="258" x2="916" y2="258" stroke="#E4E6EA" stroke-width="1"/>
+  <text x="696" y="284" font-size="12.4" font-weight="600" fill="#0033A0">
+    <tspan x="696" dy="0">Applying a decision, not making</tspan>
+    <tspan x="696" dy="18">a fresh one and hoping.</tspan>
+  </text>
+
+  <!-- logic band -->
+  <rect x="60" y="344" width="588" height="44" fill="#0033A0"/>
+  <text x="354" y="372" text-anchor="middle" font-size="14.5" font-weight="600" fill="#FFFFFF">Together, these two supply the logic.</text>
+
+  <!-- payoff -->
+  <rect x="60" y="418" width="880" height="60" fill="#E10600"/>
+  <text x="500" y="455" text-anchor="middle" font-size="18" font-weight="600" fill="#FFFFFF">The harder you work at design time, the lighter the model you need at runtime.</text>
+
+  <!-- instances -->
+  <text x="60" y="522" font-size="11.5" font-weight="700" fill="#E10600" letter-spacing="1.4">THE SAME SHAPE, TWICE</text>
+
+  <rect x="60" y="540" width="425" height="140" fill="#FFFFFF" stroke="#E4E6EA" stroke-width="1.5"/>
+  <rect x="60" y="540" width="4" height="140" fill="#0033A0"/>
+  <text x="84" y="570" font-size="14.5" font-weight="700" fill="#14161A">Henry Schein One</text>
+  <text x="84" y="595" font-size="12.6" fill="#5B6066">
+    <tspan x="84" dy="0">A Copilot prompt re-reasoned the whole business</tspan>
+    <tspan x="84" dy="18">review on every run, so the output drifted. Rebuilt</tspan>
+    <tspan x="84" dy="18">with BI as a Domo dashboard — enter an account,</tspan>
+    <tspan x="84" dy="18">get the same complete script every time.</tspan>
+  </text>
+  <text x="84" y="668" font-size="12.5" font-weight="700" fill="#E10600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">60+ min  →  15–30 min</text>
+
+  <rect x="515" y="540" width="425" height="140" fill="#FFFFFF" stroke="#E4E6EA" stroke-width="1.5"/>
+  <rect x="515" y="540" width="4" height="140" fill="#0033A0"/>
+  <text x="539" y="570" font-size="14.5" font-weight="700" fill="#14161A">Digital Sous Chef</text>
+  <text x="539" y="595" font-size="12.6" fill="#5B6066">
+    <tspan x="539" dy="0">A few hours of back-and-forth on the heavy model</tspan>
+    <tspan x="539" dy="18">to design the skill, write the rules, and break it</tspan>
+    <tspan x="539" dy="18">enough times to trust it. That horsepower got spent</tspan>
+    <tspan x="539" dy="18">once. Cards get built on the light model now.</tspan>
+  </text>
+  <text x="539" y="668" font-size="12.5" font-weight="700" fill="#E10600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">Design heavy  →  run light</text>
+</svg></figure>
+      <div class="receipt">Business review prep: 60+ minutes → 15–30 minutes.</div>
+      <p class="deep"><a href="https://daynwj.github.io/design-time-logic">How my meal-planning system moved everything out of the instructions →</a></p>
+    </section>
+
+    <section>
+      <div class="sectlabel">Permissioning</div>
+      <h2>What the tool is allowed to reach decides what you can build.</h2>
+      <div class="prose">
+        <p>At Recorded Future I rolled out Gainsight's Slack AI agent to the CSM team, replacing a notification-only app. Piloted with under ten people first. Access inherited each rep's Salesforce permissions, so a CSM saw their own book and a manager saw what rolled up to them — no second permission model to maintain.</p>
+        <p>Clearing legal and InfoSec at a threat intelligence company was never going to be a formality. It meant working with Gainsight's product team to confirm a wildcard operator that confined the agent to DMs and kept it out of every channel, public and private.</p>
+        <p>Henry Schein One is the more useful half of the story. I wanted a Copilot Studio agent with a live line into Gainsight, and we couldn't get MCP access into Microsoft Copilot at all. The answer that came back was to use what a vendor already offered.</p>
+        <p>So we rerouted. Gainsight's own Copilot already reaches the account data, which covers the account questions without asking anyone for anything. For everything else we built declarative Microsoft Copilot agents grounded solely in SharePoint knowledge libraries — call recordings, SOPs, knowledge docs, and a list of external-facing product links. Because Copilot is grounded in the Microsoft Graph, a CSM with Copilot Premium can search across Outlook, Teams, and SharePoint using an LLM security had already approved. The agent can't touch Gainsight or Salesforce. It doesn't need to.</p>
+        <p>We got blocked, found the workaround, and the workaround turned out to be nearly as useful — the CSMs got a real search tool out of it. Ask for the thing you actually want. Then go find out what you're allowed to reach, because that answer is going to shape the architecture either way.</p>
+      </div>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Two permissioning outcomes: an agent that shipped as designed at Recorded Future, and one that was blocked and rerouted at Henry Schein One">
+  <rect width="1000" height="700" fill="#FFFFFF"/>
+
+  <text x="60" y="44" font-size="11.5" font-weight="700" fill="#E10600" letter-spacing="1.4">TWO ORGS, TWO ANSWERS — AND THE ANSWER SHAPED THE ARCHITECTURE BOTH TIMES</text>
+
+  <!-- ===== LEFT ===== -->
+  <rect x="60" y="64" width="418" height="558" fill="#F4F6F8" stroke="#0033A0" stroke-width="2"/>
+  <rect x="60" y="64" width="418" height="6" fill="#0033A0"/>
+
+  <text x="86" y="104" font-size="18" font-weight="700" fill="#14161A">Recorded Future</text>
+  <text x="86" y="126" font-size="11.5" font-weight="700" fill="#0033A0" letter-spacing="0.6">SHIPPED AS DESIGNED</text>
+  <text x="86" y="150" font-size="12.4" fill="#5B6066">Gainsight's Slack AI agent, to the whole CSM team.</text>
+  <line x1="86" y1="172" x2="452" y2="172" stroke="#D8DCE2" stroke-width="1"/>
+
+  <text x="86" y="202" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHO SEES WHAT</text>
+  <rect x="86" y="216" width="366" height="50" fill="#FFFFFF" stroke="#D8DCE2" stroke-width="1"/>
+  <rect x="86" y="216" width="4" height="50" fill="#0033A0"/>
+  <text x="106" y="238" font-size="13.5" font-weight="600" fill="#14161A">CSM</text>
+  <text x="106" y="256" font-size="12.3" fill="#5B6066">Their own book. Nothing else.</text>
+
+  <rect x="86" y="276" width="366" height="50" fill="#FFFFFF" stroke="#D8DCE2" stroke-width="1"/>
+  <rect x="86" y="276" width="4" height="50" fill="#0033A0"/>
+  <text x="106" y="298" font-size="13.5" font-weight="600" fill="#14161A">Manager</text>
+  <text x="106" y="316" font-size="12.3" fill="#5B6066">Whatever rolls up to them.</text>
+
+  <text x="86" y="362" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHERE IT'S ENFORCED</text>
+  <rect x="86" y="376" width="366" height="56" fill="#FFFFFF" stroke="#D8DCE2" stroke-width="1"/>
+  <rect x="86" y="376" width="4" height="56" fill="#E10600"/>
+  <text x="106" y="398" font-size="13" font-weight="600" fill="#14161A">Inherited from Salesforce</text>
+  <text x="106" y="418" font-size="12.3" fill="#5B6066">No second permission model to maintain.</text>
+
+  <rect x="86" y="442" width="366" height="56" fill="#FFFFFF" stroke="#D8DCE2" stroke-width="1"/>
+  <rect x="86" y="442" width="4" height="56" fill="#E10600"/>
+  <text x="106" y="464" font-size="13" font-weight="600" fill="#14161A">Confined to DMs by a wildcard operator</text>
+  <text x="106" y="484" font-size="12.3" fill="#5B6066">Out of every channel, public and private.</text>
+
+  <line x1="86" y1="524" x2="452" y2="524" stroke="#D8DCE2" stroke-width="1"/>
+  <text x="86" y="550" font-size="12.4" fill="#5B6066">
+    <tspan x="86" dy="0">Piloted with under ten people first. Clearing legal</tspan>
+    <tspan x="86" dy="18">and InfoSec at a threat intelligence company meant</tspan>
+    <tspan x="86" dy="18">working with the vendor's own product team.</tspan>
+  </text>
+
+  <!-- ===== RIGHT ===== -->
+  <rect x="522" y="64" width="418" height="558" fill="#FFFFFF" stroke="#E4E6EA" stroke-width="2"/>
+  <rect x="522" y="64" width="418" height="6" fill="#5B6066"/>
+
+  <text x="548" y="104" font-size="18" font-weight="700" fill="#14161A">Henry Schein One</text>
+  <text x="548" y="126" font-size="11.5" font-weight="700" fill="#5B6066" letter-spacing="0.6">BLOCKED, THEN REROUTED</text>
+  <text x="548" y="150" font-size="12.4" fill="#5B6066">A Copilot Studio agent with a live line into Gainsight.</text>
+  <line x1="548" y1="172" x2="914" y2="172" stroke="#E4E6EA" stroke-width="1"/>
+
+  <text x="548" y="202" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHAT I ASKED FOR</text>
+  <rect x="548" y="216" width="366" height="50" fill="#FFFFFF" stroke="#E4E6EA" stroke-width="1"/>
+  <text x="568" y="238" font-size="13.5" font-weight="600" fill="#14161A">MCP or a custom connector</text>
+  <text x="568" y="256" font-size="12.3" fill="#5B6066">Live data, mediated through ops.</text>
+
+  <text x="548" y="302" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHAT CAME BACK</text>
+  <rect x="548" y="316" width="366" height="50" fill="#FFFFFF" stroke="#E4E6EA" stroke-width="1"/>
+  <text x="568" y="338" font-size="13.5" font-weight="600" fill="#14161A">No MCP access into Copilot</text>
+  <text x="568" y="356" font-size="12.3" fill="#5B6066">Use what a vendor already offers.</text>
+
+  <text x="548" y="402" font-size="11" font-weight="700" fill="#E10600" letter-spacing="0.8">WHAT WE BUILT INSTEAD</text>
+  <rect x="548" y="416" width="366" height="66" fill="#F4F6F8" stroke="#D8DCE2" stroke-width="1"/>
+  <rect x="548" y="416" width="4" height="66" fill="#E10600"/>
+  <text x="568" y="438" font-size="12.8" font-weight="600" fill="#14161A">Account questions → Gainsight's own Copilot</text>
+  <text x="568" y="458" font-size="12.3" fill="#5B6066">
+    <tspan x="568" dy="0">The vendor agent already reaches that data.</tspan>
+    <tspan x="568" dy="16">Nothing to get approved.</tspan>
+  </text>
+
+  <rect x="548" y="492" width="366" height="82" fill="#F4F6F8" stroke="#D8DCE2" stroke-width="1"/>
+  <rect x="548" y="492" width="4" height="82" fill="#E10600"/>
+  <text x="568" y="514" font-size="12.8" font-weight="600" fill="#14161A">Everything else → a SharePoint-grounded agent</text>
+  <text x="568" y="534" font-size="12.3" fill="#5B6066">
+    <tspan x="568" dy="0">Call recordings, SOPs, knowledge docs, product</tspan>
+    <tspan x="568" dy="16">links. Grounded in the Graph, so a CSM searches</tspan>
+    <tspan x="568" dy="16">Outlook, Teams and SharePoint in one place.</tspan>
+  </text>
+
+  <text x="548" y="600" font-size="12.3" fill="#5B6066" font-style="italic">It can't touch Gainsight or Salesforce. It doesn't need to.</text>
+
+  <!-- footer -->
+  <rect x="60" y="646" width="880" height="48" fill="#E10600"/>
+  <text x="500" y="676" text-anchor="middle" font-size="15.5" font-weight="600" fill="#FFFFFF">Ask for what you actually want. Then find out what you're allowed to reach.</text>
+</svg></figure>
+    </section>
+
+    <section>
+      <div class="sectlabel">Failure discipline</div>
+      <h2>Build it, watch it break, add the rule.</h2>
+      <div class="prose">
+        <p>Ten bugs in a single session, all found the same way: build a card, open it on my phone, screenshot whatever's wrong. A recipe where the title and the body text both rendered dark-on-dark and disappeared, because I keep my phone in dark mode and the card assumed I wouldn't. Raw HTML dumped into the chat as plain text, because the skill didn't resolve and the build quietly fell back to something else. A card that claimed it saved my progress and lost it the second I closed it.</p>
+        <p>I caught the dark-mode one because of email operations. Getting a message to render across clients that each make their own decisions about your CSS is most of the job in email design, and dark mode is where the majority of it goes wrong. That instinct came with me.</p>
+        <p>None of it was caught by the system. There's no automated check that tells you the text is invisible on the device someone is actually going to read it on. I found it by testing, then handed the screenshot back and asked what went wrong.</p>
+        <p>Fixing the card in front of me was never the point. Each one went back into the skill as a permanent rule, so the next build can't reintroduce it. One declared palette, never two. Every JS lookup null-safe. If a button can't reliably do the thing, don't draw the button.</p>
+        <p>The one I liked best wasn't a defect at all. A card put sauce-whisking at step three, over a hot skillet, because that's where the source recipe had it. Nothing was broken — the order just never got checked. That fix isn't a CSS rule, it's a habit: read the whole recipe before you start, or you get to the part where the sauce goes in and think, oh crud, I need the sauce. So now the skill has to write out a sequencing pass before it writes any HTML. Do it the way I'd do it.</p>
+      </div>
+      <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" width="1000" height="720" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Ledger mapping five observed failures to what went wrong and the permanent rule each produced">
+  <rect width="1000" height="720" fill="#FFFFFF"/>
+
+  <text x="60" y="44" font-size="11.5" font-weight="700" fill="#E10600" letter-spacing="1.4">EVERY ONE OF THESE WAS FOUND BY A PERSON TESTING IT, NOT BY THE SYSTEM CHECKING ITSELF</text>
+
+  <text x="76" y="88" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHAT I SAW</text>
+  <text x="378" y="88" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHAT WENT WRONG</text>
+  <text x="676" y="88" font-size="11" font-weight="700" fill="#0033A0" letter-spacing="0.8">THE RULE IT PRODUCED</text>
+  <line x1="60" y1="102" x2="940" y2="102" stroke="#14161A" stroke-width="2"/>
+
+  <!-- row 1 : 102–212 -->
+  <text x="76" y="136" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Title and body text</tspan>
+    <tspan x="76" dy="19">both invisible</tspan>
+  </text>
+  <text x="378" y="136" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">The palette was a per-card</tspan>
+    <tspan x="378" dy="18">judgment call, and only body</tspan>
+    <tspan x="378" dy="18">painted a background.</tspan>
+  </text>
+  <rect x="660" y="118" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="136" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">Dark by default, not a</tspan>
+    <tspan x="676" dy="18">choice. Every container</tspan>
+    <tspan x="676" dy="18">paints its own.</tspan>
+  </text>
+  <line x1="60" y1="212" x2="940" y2="212" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 2 : 212–322 -->
+  <text x="76" y="246" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Raw HTML dumped</tspan>
+    <tspan x="76" dy="19">into the chat as text</tspan>
+  </text>
+  <text x="378" y="246" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">The skill didn't resolve, so the</tspan>
+    <tspan x="378" dy="18">build fell back to the inline</tspan>
+    <tspan x="378" dy="18">widget and skipped the pipeline.</tspan>
+  </text>
+  <rect x="660" y="228" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="246" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">File, never widget.</tspan>
+    <tspan x="676" dy="18">Promoted to audit</tspan>
+    <tspan x="676" dy="18">check number one.</tspan>
+  </text>
+  <line x1="60" y1="322" x2="940" y2="322" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 3 : 322–432 -->
+  <text x="76" y="356" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Card said it saved my</tspan>
+    <tspan x="76" dy="19">progress. It didn't.</tspan>
+  </text>
+  <text x="378" y="356" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">State survived an app switch but</tspan>
+    <tspan x="378" dy="18">not a close, and a button kept</tspan>
+    <tspan x="378" dy="18">pointing at markup that was gone.</tspan>
+  </text>
+  <rect x="660" y="338" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="356" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">No storage at all. If a</tspan>
+    <tspan x="676" dy="18">button can't do the</tspan>
+    <tspan x="676" dy="18">thing, don't draw it.</tspan>
+  </text>
+  <line x1="60" y1="432" x2="940" y2="432" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 4 : 432–542 -->
+  <text x="76" y="466" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">"Add the broth" —</tspan>
+    <tspan x="76" dy="19">without how much</tspan>
+  </text>
+  <text x="378" y="466" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">Amounts lived in the ingredient</tspan>
+    <tspan x="378" dy="18">list, so the step sent you back</tspan>
+    <tspan x="378" dy="18">a tab with wet hands.</tspan>
+  </text>
+  <rect x="660" y="448" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="466" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">Every value lives in the</tspan>
+    <tspan x="676" dy="18">step that uses it. No</tspan>
+    <tspan x="676" dy="18">threshold, no exception.</tspan>
+  </text>
+  <line x1="60" y1="542" x2="940" y2="542" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 5 : 542–652, highlighted -->
+  <rect x="60" y="543" width="880" height="109" fill="#FFF4F3"/>
+  <text x="76" y="578" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Sauce whisked at step</tspan>
+    <tspan x="76" dy="19">three, over a hot skillet</tspan>
+  </text>
+  <text x="378" y="578" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">Nothing was broken. The order</tspan>
+    <tspan x="378" dy="18">came from the source recipe and</tspan>
+    <tspan x="378" dy="18">nobody read ahead.</tspan>
+  </text>
+  <rect x="660" y="560" width="4" height="62" fill="#E10600"/>
+  <text x="676" y="578" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">Write out a sequencing</tspan>
+    <tspan x="676" dy="18">pass before any HTML.</tspan>
+    <tspan x="676" dy="18">Read the whole recipe.</tspan>
+  </text>
+  <text x="76" y="640" font-size="12.2" fill="#B0050A" font-style="italic">The only one that wasn't a defect. No CSS rule catches it — it needed a habit, written down as a procedure.</text>
+
+  <!-- footer -->
+  <rect x="60" y="656" width="880" height="56" fill="#E10600"/>
+  <text x="500" y="681" text-anchor="middle" font-size="15.5" font-weight="600" fill="#FFFFFF">Fixing the card in front of me was never the point.</text>
+  <text x="500" y="702" text-anchor="middle" font-size="13" fill="#FFFFFF" opacity="0.85">Ten bugs, ten rules written back into the skill, so the next build can't reintroduce them.</text>
+</svg></figure>
+    </section>
+
+  </main>
+
+  <div class="close">
+    <h2>Amplification, not replacement.</h2>
+    <p>The point was never doing more work. It's that I keep coming back to build the next thing as inspiration strikes, and every one of them hands time back.</p>
+    <p>Some of it is plain scheduling. Both kids are at the same school now, so a skill scans their teachers' emails and posts one update to Slack — the dentist appointment, the travel week, the fact that I need to book a kennel for the dog. I stopped carrying that around in my head.</p>
+    <p>The part I'd defend hardest is the cold read. I'll talk through a hard conversation afterward and what I get back isn't agreement. It's: you may be reading that as nitpicking, and here's the other side of it. That lets me stand outside a conversation and see the whole shape of it. Same with this page — I talked it through out loud for half an hour instead of typing, and got pushed on a good portion of it.</p>
+    <p>It's a second brain that argues with me. It asks what I left out. It doesn't tell me what I want to hear.</p>
+    <p class="last">I'm still the human in the loop, and I get more time with my family. That's what makes the difference.</p>
+  </div>
+
+  <div class="foot">
+    <span>Dayn Johnson · Charlotte, NC</span>
+    <span><a href="https://daynwj.github.io/resume">Resume</a> · <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a> · <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a></span>
+  </div>
+
+</div>
+</body>
+</html>

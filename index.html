@@ -96,6 +96,20 @@
     max-width:60ch;
   }
 
+  .onpage{display:grid;grid-template-columns:1fr 1.4fr;gap:34px;padding:38px 58px 40px;border-bottom:1px solid var(--line);}
+  .onpage h3{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.09em;color:var(--rosso-deep);font-weight:700;margin-bottom:14px;}
+  .toc{list-style:none;counter-reset:toc;}
+  .toc li{counter-increment:toc;border-top:1px solid var(--line);}
+  .toc li:last-child{border-bottom:1px solid var(--line);}
+  .toc a{display:flex;gap:12px;padding:9px 0;color:var(--ink);text-decoration:none;font-size:14.5px;line-height:1.4;}
+  .toc a::before{content:counter(toc);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mute);min-width:14px;padding-top:2px;}
+  .toc a:hover{color:var(--rosso-deep);}
+  .deeper{display:grid;gap:12px;}
+  .deeper a{display:block;border:1px solid var(--line);border-left:5px solid var(--blue);padding:15px 18px;text-decoration:none;color:var(--ink);}
+  .deeper a:hover{border-color:var(--blue);background:rgba(0,51,160,.04);}
+  .deeper .t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;line-height:1.25;letter-spacing:-.3px;}
+  .deeper .d{font-size:13.8px;line-height:1.55;color:var(--mute);margin-top:5px;}
+
   .close{background:var(--blue);color:#fff;padding:50px 58px 54px;}
   .close h2{color:#fff;max-width:26ch;}
   .close p{font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.84);max-width:64ch;}
@@ -113,6 +127,7 @@
   .foot a{color:var(--mute);}
 
   @media(max-width:680px){
+    .onpage{grid-template-columns:1fr;gap:28px;padding:30px 22px 32px;}
     body{padding:14px 10px 40px;}
     .header{padding:34px 22px 28px;}
     .header::before{top:34px;bottom:28px;width:6px;}
@@ -139,9 +154,35 @@
     </div>
   </header>
 
+  <nav class="onpage" aria-label="On this page">
+    <div>
+      <h3>On this page</h3>
+      <ol class="toc">
+        <li><a href="#how-i-got-here">How I got here</a></li>
+        <li><a href="#design-time">Design time vs. runtime</a></li>
+        <li><a href="#permissioning">Permissioning</a></li>
+        <li><a href="#failure-discipline">Failure discipline</a></li>
+        <li><a href="#amplification">Amplification, not replacement</a></li>
+      </ol>
+    </div>
+    <div>
+      <h3>Go deeper</h3>
+      <div class="deeper">
+        <a href="https://daynwj.github.io/living-knowledge">
+          <div class="t">Every project reads the same source now</div>
+          <div class="d">Moving my Claude projects off static knowledge files and onto Notion databases that Claude keeps current.</div>
+        </a>
+        <a href="https://daynwj.github.io/design-time-logic">
+          <div class="t">Nothing that changes lives in the instructions</div>
+          <div class="d">Digital Sous Chef: how my meal-planning system put the knowledge in Notion, the rules in a skill, and the judgment in Claude.</div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
   <main>
 
-    <section>
+    <section id="how-i-got-here">
       <div class="sectlabel">How I got here</div>
       <h2>I used ChatGPT like a better Google, and kept going back to Google.</h2>
       <div class="prose">
@@ -229,7 +270,7 @@
 </svg></figure>
     </section>
 
-    <section>
+    <section id="design-time">
       <div class="sectlabel">Design time vs. runtime</div>
       <h2>The harder you work at design time, the lighter the model you need at runtime.</h2>
       <div class="prose">
@@ -329,9 +370,10 @@
 </svg></figure>
       <div class="receipt">Business review prep, leadership estimate: 60+ minutes → 15–30 minutes.</div>
       <p class="deep"><a href="https://daynwj.github.io/design-time-logic">How my meal-planning system moved everything out of the instructions →</a></p>
+      <p class="deep"><a href="https://daynwj.github.io/living-knowledge">How every one of my projects reads the same Notion source →</a></p>
     </section>
 
-    <section>
+    <section id="permissioning">
       <div class="sectlabel">Permissioning</div>
       <h2>What the tool is allowed to reach decides what you can build.</h2>
       <div class="prose">
@@ -429,7 +471,7 @@
 </svg></figure>
     </section>
 
-    <section>
+    <section id="failure-discipline">
       <div class="sectlabel">Failure discipline</div>
       <h2>Build it, watch it break, add the rule.</h2>
       <div class="prose">
@@ -549,7 +591,7 @@
 
   </main>
 
-  <div class="close">
+  <div class="close" id="amplification">
     <h2>Amplification, not replacement.</h2>
     <p>I keep coming back to build the next thing as inspiration strikes, and every one of them gives me time back.</p>
     <p>Some of it is plain scheduling. Both kids are at the same school now, so a skill scans their teachers' emails and posts one update to Slack — the dentist appointment, the travel week, the fact that I need to book a kennel for the dog. I stopped carrying that around in my head.</p>

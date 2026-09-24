@@ -110,6 +110,22 @@
   .deeper .t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;line-height:1.25;letter-spacing:-.3px;}
   .deeper .d{font-size:13.8px;line-height:1.55;color:var(--mute);margin-top:5px;}
 
+  .totop{
+    position:fixed;right:22px;bottom:22px;z-index:20;
+    display:flex;align-items:center;gap:7px;
+    background:var(--blue);color:#fff;text-decoration:none;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;
+    padding:11px 15px;box-shadow:0 10px 24px -12px rgba(20,22,26,.6);
+    opacity:0;visibility:hidden;transform:translateY(8px);
+    transition:opacity .2s,transform .2s,visibility .2s,background .15s;
+  }
+  .totop .arr{color:var(--rosso);font-size:15px;line-height:1;transition:color .15s;}
+  .totop.show{opacity:1;visibility:visible;transform:none;}
+  .totop:hover{background:var(--rosso);}
+  .totop:hover .arr{color:#fff;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.totop{transition:none;}}
+  @media print{.totop{display:none;}}
+
   .close{background:var(--blue);color:#fff;padding:50px 58px 54px;}
   .close h2{color:#fff;max-width:26ch;}
   .close p{font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.84);max-width:64ch;}
@@ -127,6 +143,7 @@
   .foot a{color:var(--mute);}
 
   @media(max-width:680px){
+    .totop{right:14px;bottom:14px;padding:10px 13px;}
     .onpage{grid-template-columns:1fr;gap:28px;padding:30px 22px 32px;}
     body{padding:14px 10px 40px;}
     .header{padding:34px 22px 28px;}
@@ -143,7 +160,7 @@
 <body>
 <div class="page">
 
-  <header class="header">
+  <header class="header" id="top">
     <div class="name">Dayn Johnson<span class="dot">.</span></div>
     <h1 class="thesis">Nothing that changes should live in the instructions.</h1>
     <p class="standfirst">I build the AI and lifecycle layer a customer success team runs on. What I've landed on after four years of it: architect the system once, keep the moving parts somewhere they're allowed to move, and let runtime be the easy part.</p>
@@ -606,5 +623,17 @@
   </div>
 
 </div>
+
+<a class="totop" href="#top" aria-label="Back to top"><span class="arr" aria-hidden="true">↑</span>Back to top</a>
+<script>
+(function(){
+  var btn=document.querySelector('.totop'),nav=document.querySelector('.onpage');
+  if(!btn||!nav||!('IntersectionObserver' in window)){if(btn)btn.classList.add('show');return;}
+  new IntersectionObserver(function(e){
+    var r=e[0].boundingClientRect;
+    btn.classList.toggle('show',!e[0].isIntersecting&&r.bottom<0);
+  }).observe(nav);
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Created: 2026-11-18 · Written for: Opus 5.5 · Replaces: daynwj.github.io/design-time-logic/ (its own repo) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nothing that changes lives in the instructions — Dayn Johnson</title>
+<meta name="description" content="Digital Sous Chef: how Dayn Johnson&#x27;s meal-planning system put the knowledge in Notion, the rules in a skill, and the judgment in Claude.">
+<link rel="canonical" href="https://daynwj.github.io/ai/design-time-logic/">
+<meta property="og:title" content="Nothing that changes lives in the instructions anymore">
+<meta property="og:description" content="Digital Sous Chef: knowledge in Notion, rules in a skill, judgment in Claude.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://daynwj.github.io/ai/design-time-logic/">
+<link rel="icon" href="/ai/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ai/assets/site.css">
+</head>
+<body>
+<div class="page" id="content">
+
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="sitenav" aria-label="Site">
+    <a class="brand" href="/ai/">Dayn Johnson<span class="dot">.</span></a>
+    <ul>
+      <li><a href="/ai/#articles">Articles</a></li>
+      <li><a href="https://daynwj.github.io/pit-wall-focus-room/">Focus Room<span class="out" aria-hidden="true"> ↗</span></a></li>
+      <li><a href="https://daynwj.github.io/resume/">Resume<span class="out" aria-hidden="true"> ↗</span></a></li>
+    </ul>
+  </nav>
+
+  <header class="header">
+    <div class="kicker">DIGITAL SOUS CHEF · A CLAUDE + NOTION BUILD</div>
+    <h1 class="thesis">Nothing that changes lives in the instructions anymore.</h1>
+    <p class="standfirst">I cook off recipe cards Claude builds for me. The version before this one lived in a Gemini gem, and I stopped opening it, because <b>everything it knew was trapped in a prompt I'd stopped looking at.</b></p>
+    <div class="links">
+      <a href="/ai/">AI practice</a>
+      <a href="https://daynwj.github.io/resume/">Resume</a>
+      <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a>
+      <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="sectlabel">Why I quit the old one</div>
+      <h2>It got confidently wrong, and nothing I liked ever accumulated.</h2>
+      <div class="callout">
+        <p>Ask it for oatmeal, get a Mediterranean brunch. That wasn't a hallucination. It was a preference I'd written into the gem months earlier, and it had grown until it was the whole personality of the tool. It answered with total confidence, from instructions that had drifted away from how I actually cook.</p>
+        <p><b>And nothing stuck.</b> My recipes lived in Paprika. The gem had no memory between chats, so it would invent a one-off dish, I'd cook it, it'd be good, and I could never find it again. I was spending more time managing the system than cooking with it.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="sectlabel">Where everything lives now</div>
+      <h2>Three pieces, three jobs, none of them instructions I have to maintain by hand.</h2>
+      <div class="trio">
+        <div>
+          <div class="what">THE KNOWLEDGE</div>
+          <h3>Notion</h3>
+          <p>Every recipe imported out of Paprika into a live database, plus what everyone at my table will and won't eat. It changes when my life changes, not when I remember to rewrite the instructions.</p>
+        </div>
+        <div>
+          <div class="what">THE RULES</div>
+          <h3>A skill</h3>
+          <p>How a card gets built: layout, timing, where amounts go, how a dish splits. Written once, loaded on every card, regardless of which model is running.</p>
+        </div>
+        <div>
+          <div class="what">THE JUDGMENT</div>
+          <h3>Claude</h3>
+          <p>Reads both, adapts the recipe to what's in the fridge and who's eating, and writes the cook back to the library afterward so the next answer is better than this one.</p>
+        </div>
+      </div>
+      <p class="deep"><a href="/ai/living-knowledge/">How every one of my projects reads the same Notion source →</a></p>
+    </section>
+
+    <section>
+      <div class="sectlabel">What it actually does for me</div>
+      <h2>I shop the sales first and figure out dinner second.</h2>
+      <div class="prose">
+        <p>This answers “what can I make with this?” every night.</p>
+      </div>
+      <div class="trio">
+        <div>
+          <h3>It knows my favorites</h3>
+          <p>Everything I've cooked and kept is in the library, searchable, along with where a dish needs to split for the mild eaters at my table.</p>
+        </div>
+        <div>
+          <h3>It knows where I'd look</h3>
+          <p>When the library doesn't have it, it goes to the cooking and food-science sites I actually trust instead of the open internet. If the dish is good, it goes into the library after I cook it.</p>
+        </div>
+        <div>
+          <h3>One plan, not four recipes</h3>
+          <p>Cooking three things at once, I don't flip between cards. It merges them into a single timing plan: what starts first, what holds, what fills the gaps.</p>
+        </div>
+      </div>
+
+      <div class="figgrid">
+        <figure class="wide dark">
+          <img src="/ai/assets/img/recipe-timing.svg" width="900" height="96" loading="lazy" alt="Four timing chips reading prep 10 to 15 minutes, cook 10 to 15 minutes, rice 20 minutes, total 30 to 35 minutes.">
+          <a class="fullsize" href="/ai/assets/img/recipe-timing.svg">Open full size ↗</a>
+          <figcaption><b>Ranges, not point estimates.</b> A single number quietly assumes a line cook. I'm not one, and a number I miss every time reads as a target I'm failing.</figcaption>
+        </figure>
+        <figure class="dark">
+          <img src="/ai/assets/img/recipe-do-first.svg" width="900" height="616" loading="lazy" alt="A card phase labeled Do First for making the sauce, with ingredient amounts repeated inside the step text.">
+          <a class="fullsize" href="/ai/assets/img/recipe-do-first.svg">Open full size ↗</a>
+          <figcaption><b>Every amount repeated inside the step that uses it</b>, so I never leave the step I'm on to go find a number. And a make-ahead phase badged and moved to the front, where it can actually get made ahead.</figcaption>
+        </figure>
+        <figure class="dark">
+          <img src="/ai/assets/img/recipe-phases.svg" width="900" height="470" loading="lazy" alt="Numbered cooking phases with green bars between them describing what to do while the rice cooks unattended.">
+          <a class="fullsize" href="/ai/assets/img/recipe-phases.svg">Open full size ↗</a>
+          <figcaption><b>Numbers for the sequence, bars for the gaps.</b> Anywhere something cooks unattended, the card names what to start in that window instead of leaving me standing there.</figcaption>
+        </figure>
+        <figure class="wide dark">
+          <img src="/ai/assets/img/recipe-fork-point.svg" width="900" height="206" loading="lazy" alt="A callout with a solid left accent bar reading fork point, this is critical, explaining when to pull the mild portion.">
+          <a class="fullsize" href="/ai/assets/img/recipe-fork-point.svg">Open full size ↗</a>
+          <figcaption><b>The fork point, flagged before I start.</b> One pan, two versions, and the moment to split them called out before I'm standing over it.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cardshot">
+        <figure class="dark">
+          <a href="/ai/assets/img/recipe-full-card.svg"><img src="/ai/assets/img/recipe-full-card.svg" width="760" height="1108" loading="lazy" alt="A full recipe card for pulled pork and vinegar potato salad, showing a Do First phase and a numbered prep and sear phase."></a>
+        </figure>
+        <div class="prose">
+          <p><b>This card was built by Haiku, start to finish.</b> I asked for pulled pork. It pulled the recipe, worked out that the potato salad holds for hours and the pork doesn't, and put the salad in front as its own do-first phase, then used the 50-minute pressure window for everything that didn't need me at the stove.</p>
+          <p>None of that reasoning happened tonight. It happened once, months ago, in a much more expensive conversation, and then got written down.</p>
+          <p class="note">The card images on this page are redrawn as SVG from the real cards, so they stay sharp on any screen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sectlabel">Where the AI work actually belongs</div>
+      <h2>Every one of those rules is a decision made once, on purpose, instead of re-litigated on a Tuesday night.</h2>
+      <div class="duo">
+        <div>
+          <div class="what">DESIGN TIME</div>
+          <h3>Reason it out once</h3>
+          <p>The strong model earns its cost here: finding the failure, arguing about the fix, and turning the fix into a rule specific enough that a lighter model can't misread it.</p>
+        </div>
+        <div>
+          <div class="what">RUNTIME</div>
+          <h3>Just follow the rules</h3>
+          <p>Nothing gets reinvented per card. The build is cheap, fast, and boringly consistent, because the thinking already happened and it's written down.</p>
+        </div>
+      </div>
+      <div class="receipt blue">Getting there took stress-testing. I kept opening cards in my kitchen and finding small things that bugged me, and every fix surfaced the next one. What ended it was fixing them somewhere else (in the skill, as a permanent rule, instead of in the one card). The model was never the problem. Everything that came back wrong came back wrong because my spec allowed it.</div>
+      <div class="callout">
+        <p>I'd already learned this at work and didn't recognize it as the same thing.</p>
+        <p>I'd shipped a business-review prep prompt to the Gainsight Copilot library. Formatting changed run to run, talking points dropped out, and CSMs were re-prompting just to get a complete script. It was making the job harder.</p>
+        <p>So I retired it and rebuilt the talking points as logic instead of instructions, gated on product, version, and feature use. Our BI partner loaded that logic into Domo next to each account's data, so a CSM searches an account and gets the same talking points every time. <b>Leadership estimates prep went from an hour-plus to 15–30 minutes.</b> Same move as the recipe cards: get the thinking out of the thing that runs, and into the thing that gets designed.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="close">
+    <h2>Knowledge in the database, rules in a skill, dinner made by me.</h2>
+    <p>Digital Sous Chef runs on Claude and Notion. The same idea, doing the thinking at design time so runtime is the easy part, runs through everything on <a href="/ai/">my AI practice page</a>.</p>
+    <div class="nextlinks">
+      <a href="/ai/">AI practice</a>
+      <a href="/ai/living-knowledge/">Living knowledge</a>
+      <a href="/ai/focus-room/">Pit Wall Focus Room</a>
+      <a href="https://daynwj.github.io/resume/">Resume</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Dayn Johnson · Charlotte, NC</span>
+    <span><a href="https://daynwj.github.io/resume/">Resume</a> · <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a> · <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a></span>
+    <span class="stamp">First published <time datetime="2026-09">September 2026</time></span>
+  </div>
+
+</div>
+
+<a class="totop" href="#content" aria-label="Back to top"><span class="arr" aria-hidden="true">↑</span>Back to top</a>
+<script src="/ai/assets/site.js" defer></script>
+</body>
+</html>

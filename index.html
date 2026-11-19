@@ -1,177 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Created: 2026-11-18 · Written for: Opus 5.5 · Replaces: 2026-10-16 single-page hub -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dayn Johnson — AI Practice</title>
 <meta name="description" content="How Dayn Johnson builds AI systems: architecture at design time, a living grounding source instead of a growing instruction set, and rules written out of real failures.">
+<link rel="canonical" href="https://daynwj.github.io/ai/">
 <meta property="og:title" content="Dayn Johnson — AI Practice">
 <meta property="og:description" content="Nothing that changes should live in the instructions.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://daynwj.github.io/ai/">
+<link rel="icon" href="/ai/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --rosso:#E10600;
-    --rosso-deep:#B0050A;
-    --blue:#0033A0;
-    --ink:#14161A;
-    --mute:#5B6066;
-    --line:#E4E6EA;
-    --paper:#FFFFFF;
-    --backdrop:#EEF0F3;
-    color-scheme:light;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
-    color:var(--ink);
-    background:var(--backdrop);
-    line-height:1.5;
-    padding:30px 16px 60px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .page{
-    width:100%;max-width:1000px;margin:0 auto;
-    background:var(--paper);
-    box-shadow:0 24px 60px -28px rgba(20,22,26,.45);
-  }
-  a:focus-visible,button:focus-visible{outline:3px solid var(--rosso);outline-offset:2px;}
-
-  .header{position:relative;padding:58px 58px 42px;border-bottom:1px solid var(--ink);}
-  .header::before{content:"";position:absolute;left:0;top:58px;bottom:42px;width:7px;background:var(--rosso);}
-  .name{
-    font-family:'Space Grotesk',sans-serif;font-weight:700;
-    font-size:44px;letter-spacing:-1.3px;line-height:1;
-  }
-  .name .dot{color:var(--rosso);}
-  .thesis{
-    font-family:'Space Grotesk',sans-serif;font-weight:600;
-    font-size:34px;line-height:1.18;letter-spacing:-.7px;
-    margin-top:26px;max-width:17ch;
-  }
-  .standfirst{
-    font-size:16.5px;line-height:1.64;color:#2b2e33;
-    margin-top:20px;max-width:62ch;
-  }
-  .links{
-    display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;
-    font-family:'JetBrains Mono',monospace;font-size:12px;
-  }
-  .links a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;}
-  .links a:hover{color:var(--rosso-deep);border-bottom-color:var(--rosso-deep);}
-
-  main{padding:0 58px 58px;}
-  section{padding-top:54px;}
-  section + section{border-top:1px solid var(--line);margin-top:54px;padding-top:54px;}
-
-  .sectlabel{
-    font-family:'JetBrains Mono',monospace;font-size:11px;
-    letter-spacing:.09em;color:var(--rosso-deep);font-weight:700;
-    margin-bottom:16px;
-  }
-  h2{
-    font-family:'Space Grotesk',sans-serif;font-weight:700;
-    font-size:29px;line-height:1.18;letter-spacing:-.6px;
-    max-width:25ch;margin-bottom:20px;
-  }
-  .prose p{font-size:16px;line-height:1.7;color:#2b2e33;max-width:68ch;}
-  .prose p + p{margin-top:15px;}
-  .prose em{font-style:italic;}
-
-  figure{margin:34px 0 0;}
-  figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);}
-
-
-  .deep{margin-top:20px;font-size:14.5px;}
-  .deep a{color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1.5px solid rgba(0,51,160,.3);}
-  .deep a:hover{border-bottom-color:var(--blue);}
-  .receipt{
-    margin-top:30px;border-left:5px solid var(--rosso);
-    background:rgba(225,6,0,.05);padding:16px 20px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:14.5px;font-weight:500;color:var(--ink);
-    max-width:60ch;
-  }
-
-  .onpage{display:grid;grid-template-columns:1fr 1.4fr;gap:34px;padding:38px 58px 40px;border-bottom:1px solid var(--line);}
-  .onpage h3{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.09em;color:var(--rosso-deep);font-weight:700;margin-bottom:14px;}
-  .toc{list-style:none;counter-reset:toc;}
-  .toc li{counter-increment:toc;border-top:1px solid var(--line);}
-  .toc li:last-child{border-bottom:1px solid var(--line);}
-  .toc a{display:flex;gap:12px;padding:9px 0;color:var(--ink);text-decoration:none;font-size:14.5px;line-height:1.4;}
-  .toc a::before{content:counter(toc);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mute);min-width:14px;padding-top:2px;}
-  .toc a:hover{color:var(--rosso-deep);}
-  .deeper{display:grid;gap:12px;}
-  .deeper a{display:block;border:1px solid var(--line);border-left:5px solid var(--blue);padding:15px 18px;text-decoration:none;color:var(--ink);}
-  .deeper a:hover{border-color:var(--blue);background:rgba(0,51,160,.04);}
-  .deeper .t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;line-height:1.25;letter-spacing:-.3px;}
-  .deeper .d{font-size:13.8px;line-height:1.55;color:var(--mute);margin-top:5px;}
-
-  .totop{
-    position:fixed;right:22px;bottom:22px;z-index:20;
-    display:flex;align-items:center;gap:7px;
-    background:var(--blue);color:#fff;text-decoration:none;
-    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;
-    padding:11px 15px;box-shadow:0 10px 24px -12px rgba(20,22,26,.6);
-    opacity:0;visibility:hidden;transform:translateY(8px);
-    transition:opacity .2s,transform .2s,visibility .2s,background .15s;
-  }
-  .totop .arr{color:var(--rosso);font-size:15px;line-height:1;transition:color .15s;}
-  .totop.show{opacity:1;visibility:visible;transform:none;}
-  .totop:hover{background:var(--rosso);}
-  .totop:hover .arr{color:#fff;}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.totop{transition:none;}}
-  @media print{.totop{display:none;}}
-
-  .close{background:var(--blue);color:#fff;padding:50px 58px 54px;}
-  .close h2{color:#fff;max-width:26ch;}
-  .close p{font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.84);max-width:64ch;}
-  .close p + p{margin-top:15px;}
-  .close .last{
-    color:#fff;font-weight:600;font-size:18px;margin-top:26px;
-    font-family:'Space Grotesk',sans-serif;line-height:1.4;max-width:30ch;
-  }
-
-  .foot{
-    padding:26px 58px 30px;border-top:1px solid var(--line);
-    font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mute);
-    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  }
-  .foot a{color:var(--mute);}
-
-  @media(max-width:680px){
-    .totop{right:14px;bottom:14px;padding:10px 13px;}
-    .onpage{grid-template-columns:1fr;gap:28px;padding:30px 22px 32px;}
-    body{padding:14px 10px 40px;}
-    .header{padding:34px 22px 28px;}
-    .header::before{top:34px;bottom:28px;width:6px;}
-    .name{font-size:33px;}
-    .thesis{font-size:25px;max-width:none;}
-    main{padding:0 22px 40px;}
-    h2{font-size:23px;}
-    .close{padding:34px 22px 38px;}
-    .foot{padding:22px;}
-  }
-</style>
+<link rel="stylesheet" href="/ai/assets/site.css">
 </head>
 <body>
-<div class="page">
+<div class="page" id="content">
 
-  <header class="header" id="top">
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="sitenav" aria-label="Site">
+    <a class="brand" href="/ai/">Dayn Johnson<span class="dot">.</span></a>
+    <ul>
+      <li><a href="/ai/#articles">Articles</a></li>
+      <li><a href="https://daynwj.github.io/pit-wall-focus-room/">Focus Room<span class="out" aria-hidden="true"> ↗</span></a></li>
+      <li><a href="https://daynwj.github.io/resume/">Resume<span class="out" aria-hidden="true"> ↗</span></a></li>
+    </ul>
+  </nav>
+
+  <header class="header">
     <div class="name">Dayn Johnson<span class="dot">.</span></div>
     <h1 class="thesis">Nothing that changes should live in the instructions.</h1>
     <p class="standfirst">I build the AI and lifecycle layer a customer success team runs on. What I've landed on after four years of it: architect the system once, keep the moving parts somewhere they're allowed to move, and let runtime be the easy part.</p>
     <div class="links">
-      <a href="https://daynwj.github.io/resume">Resume</a>
+      <a href="https://daynwj.github.io/resume/">Resume</a>
       <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a>
       <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a>
     </div>
   </header>
 
-  <nav class="onpage" aria-label="On this page">
+  <nav class="onpage" aria-label="On this page" id="articles">
     <div>
       <h3>On this page</h3>
       <ol class="toc">
@@ -183,19 +53,27 @@
       </ol>
     </div>
     <div>
-      <h3>Go deeper</h3>
+      <h3>Articles</h3>
       <div class="deeper">
-        <a href="https://daynwj.github.io/unpack-ai">
+        <a href="/ai/focus-room/" class="new">
+          <div class="t">I changed the plan five times, and building in code kept that cheap</div>
+          <div class="d">Pit Wall Focus Room: my digital focus room and virtual office buddy, built with an F1 garage crew that works alongside me.</div>
+          <div class="when"><time datetime="2026-11">November 2026</time></div>
+        </a>
+        <a href="/ai/unpack-ai/">
           <div class="t">Everyone I've helped with AI started by talking it out</div>
           <div class="d">Helping my son, my wife, and 50+ CSMs get started with AI, and what changes when you don't manage the people you're enabling.</div>
+          <div class="when"><time datetime="2026-10">October 2026</time></div>
         </a>
-        <a href="https://daynwj.github.io/living-knowledge">
+        <a href="/ai/living-knowledge/">
           <div class="t">Every project reads the same source now</div>
           <div class="d">Moving my Claude projects off static knowledge files and onto Notion databases that Claude keeps current.</div>
+          <div class="when"><time datetime="2026-09">September 2026</time></div>
         </a>
-        <a href="https://daynwj.github.io/design-time-logic">
+        <a href="/ai/design-time-logic/">
           <div class="t">Nothing that changes lives in the instructions</div>
           <div class="d">Digital Sous Chef: how my meal-planning system put the knowledge in Notion, the rules in a skill, and the judgment in Claude.</div>
+          <div class="when"><time datetime="2026-09">September 2026</time></div>
         </a>
       </div>
     </div>
@@ -288,7 +166,8 @@
     <tspan x="900" dy="19">base. Every project</tspan>
     <tspan x="900" dy="19">reads the same source.</tspan>
   </text>
-</svg></figure>
+</svg>
+<a class="fullsize" href="/ai/assets/img/visual-01-the-arc.svg">Open full size ↗</a></figure>
     </section>
 
     <section id="design-time">
@@ -388,10 +267,11 @@
     <tspan x="539" dy="18">once. Cards get built on the light model now.</tspan>
   </text>
   <text x="539" y="668" font-size="12.5" font-weight="700" fill="#E10600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">Design heavy  →  run light</text>
-</svg></figure>
-      <div class="receipt">Business review prep, leadership estimate: 60+ minutes → 15–30 minutes.</div>
-      <p class="deep"><a href="https://daynwj.github.io/design-time-logic">How my meal-planning system moved everything out of the instructions →</a></p>
-      <p class="deep"><a href="https://daynwj.github.io/living-knowledge">How every one of my projects reads the same Notion source →</a></p>
+</svg>
+<a class="fullsize" href="/ai/assets/img/visual-02-design-time-runtime.svg">Open full size ↗</a></figure>
+      <div class="receipt mono">Business review prep, leadership estimate: 60+ minutes → 15–30 minutes.</div>
+      <p class="deep"><a href="/ai/design-time-logic/">How my meal-planning system moved everything out of the instructions →</a></p>
+      <p class="deep"><a href="/ai/living-knowledge/">How every one of my projects reads the same Notion source →</a></p>
     </section>
 
     <section id="permissioning">
@@ -489,7 +369,8 @@
   <!-- footer -->
   <rect x="60" y="646" width="880" height="48" fill="#E10600"/>
   <text x="500" y="676" text-anchor="middle" font-size="15.5" font-weight="600" fill="#FFFFFF">Ask for what you actually want. Then find out what you're allowed to reach.</text>
-</svg></figure>
+</svg>
+<a class="fullsize" href="/ai/assets/img/visual-03-permissioning.svg">Open full size ↗</a></figure>
     </section>
 
     <section id="failure-discipline">
@@ -607,7 +488,8 @@
   <rect x="60" y="656" width="880" height="56" fill="#E10600"/>
   <text x="500" y="681" text-anchor="middle" font-size="15.5" font-weight="600" fill="#FFFFFF">Fixing the card in front of me was never the point.</text>
   <text x="500" y="702" text-anchor="middle" font-size="13" fill="#FFFFFF" opacity="0.85">Ten bugs, ten rules written back into the skill, so the next build can't reintroduce them.</text>
-</svg></figure>
+</svg>
+<a class="fullsize" href="/ai/assets/img/visual-04-bug-to-rule-ledger.svg">Open full size ↗</a></figure>
     </section>
 
   </main>
@@ -621,23 +503,16 @@
     <p class="last">I'm still the human in the loop, and I get more time with my family.</p>
   </div>
 
+  
+
   <div class="foot">
     <span>Dayn Johnson · Charlotte, NC</span>
-    <span><a href="https://daynwj.github.io/resume">Resume</a> · <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a> · <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a></span>
+    <span><a href="https://daynwj.github.io/resume/">Resume</a> · <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a> · <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a></span>
   </div>
 
 </div>
 
-<a class="totop" href="#top" aria-label="Back to top"><span class="arr" aria-hidden="true">↑</span>Back to top</a>
-<script>
-(function(){
-  var btn=document.querySelector('.totop'),nav=document.querySelector('.onpage');
-  if(!btn||!nav||!('IntersectionObserver' in window)){if(btn)btn.classList.add('show');return;}
-  new IntersectionObserver(function(e){
-    var r=e[0].boundingClientRect;
-    btn.classList.toggle('show',!e[0].isIntersecting&&r.bottom<0);
-  }).observe(nav);
-})();
-</script>
+<a class="totop" href="#content" aria-label="Back to top"><span class="arr" aria-hidden="true">↑</span>Back to top</a>
+<script src="/ai/assets/site.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Created: 2026-11-18 · Written for: Opus 5.5 · Replaces: 2026-11-18 draft at /pit-wall-build/ (never published) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayn Johnson — Pit Wall Focus Room</title>
+<meta name="description" content="How Dayn Johnson built Pit Wall Focus Room, his digital focus room and virtual office buddy set in an F1 team garage: the idea, the back-and-forth, and how it works.">
+<link rel="canonical" href="https://daynwj.github.io/ai/focus-room/">
+<meta property="og:title" content="I changed the plan five times, and building in code kept that cheap">
+<meta property="og:description" content="Building a digital focus room and virtual office buddy, with a garage crew that works alongside you.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://daynwj.github.io/ai/focus-room/">
+<meta property="og:image" content="https://daynwj.github.io/ai/assets/img/og-focus-room.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="The Pit Wall Focus Room garage: a crew at a coffee bar, three telemetry monitors, and a 30-minute timer.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/ai/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ai/assets/site.css">
+</head>
+<body>
+<div class="page" id="content">
+
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="sitenav" aria-label="Site">
+    <a class="brand" href="/ai/">Dayn Johnson<span class="dot">.</span></a>
+    <ul>
+      <li><a href="/ai/#articles">Articles</a></li>
+      <li><a href="https://daynwj.github.io/pit-wall-focus-room/">Focus Room<span class="out" aria-hidden="true"> ↗</span></a></li>
+      <li><a href="https://daynwj.github.io/resume/">Resume<span class="out" aria-hidden="true"> ↗</span></a></li>
+    </ul>
+  </nav>
+
+  <header class="header">
+    <h1 class="thesis">I changed the plan five times, and building in code kept that cheap.</h1>
+    <p class="standfirst">Pit Wall Focus Room is my digital focus room and virtual office buddy, set in an F1 team garage. You name one task, the crew works quietly around you for 30 minutes, and when the car rolls into the bay one of them asks what you got done. Claude wrote all of the code. I made the calls, and most of the interesting ones were changes of mind.</p>
+    <div class="links">
+      <a href="https://daynwj.github.io/pit-wall-focus-room/">Try it live</a>
+      <a href="https://github.com/daynwj/pit-wall-focus-room">The repo</a>
+      <a href="/ai/">AI practice</a>
+      <a href="https://daynwj.github.io/resume/">Resume</a>
+      <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="sectlabel">The idea</div>
+      <h2>It started with one idea from a Substack post.</h2>
+      <div class="prose">
+        <p>Excellent AI Prompts published a post called "Use AI to Build the Tools Your Brain Needs," six small tools you can build with one prompt each. The first is a focus room built around body doubling – working alongside someone so that starting a task (and staying with it) gets easier. The post describes a calm animated scene of someone working at a library desk, lo-fi music with library sounds, a 90-minute timer with a 30-minute break, and your one current task in big text with a box to type it. The other five tools are behind the paywall, so that first one is the only one I know.</p>
+        <p>I wanted something more personal than Coffitivity, something that made me feel like I was working WITH somebody. A crew that notices when you come back in got closer to that than a café soundtrack.</p>
+      </div>
+      <div class="credit">
+        <b>CREDIT</b>
+        The idea and the inspiration come from <a href="https://excellentprompts.substack.com/">Excellent AI Prompts</a> on Substack and their post "Use AI to Build the Tools Your Brain Needs." The garage, the crew, the timings, and the code are my own spin on it.
+      </div>
+    </section>
+
+    <section>
+      <div class="sectlabel">Privacy</div>
+      <h2>The question I cared most about was where my words would go.</h2>
+      <div class="prose">
+        <p>Once the room looked right, I asked how it actually worked: when I type my task, or what I got done, where does that go? A focus tool hears the unpolished version of your day (half-finished work, "nothing, I got pulled into email"), and I wasn't going to use one that sent that anywhere.</p>
+        <p>That question decided the platform (it's Change 4 in the timeline below). I'd been building in a Claude artifact, which is great for trying things out, but I also wanted something I could show people easily and maybe share later. Claude laid out the tradeoffs, and we landed on a static page on GitHub Pages. There's no server, no analytics, and no outside requests. What you type is saved only in your own browser, on your own device, until you clear it.</p>
+        <p>Claude was also clear about what I'd give up. GitHub Pages sites are public, even from a private repo on a free plan. And a static page can't call an AI model, so the crew can't write real replies to what you tell them.</p>
+        <p>The rules for the scratch pad were mine: it keeps every debrief on the device until I clear it, the clear button is red and impossible to miss, it asks before it wipes anything (and offers to copy everything first), and a hover note says exactly what it stores and where.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="sectlabel">The back-and-forth</div>
+      <h2>Most of the build was me changing my mind.</h2>
+      <div class="prose">
+        <p>This is the part I'd want to read about someone else's build. We went back and forth the whole way, and almost every big decision on the finished page reverses an earlier one. Here's the order it happened in.</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <span class="tag">TEST FIRST</span>
+          <h3>Coffitivity couldn't come along.</h3>
+          <p>The original plan had Coffitivity playing inside the page. Claude tested that before building on it: the artifact sandbox blocks pages from other sites, so it was never going to load. Claude built a café layer in code instead (room tone, murmur, cup clinks, the occasional espresso steam wand), and I like it better than the recording.</p>
+        </li>
+        <li class="turn">
+          <span class="tag">CHANGE 1</span>
+          <h3>The first theme didn't land, so I went to Azeroth.</h3>
+          <p>I pushed back on the first version and asked for something completely different: a moonlit druid glade from World of Warcraft, with tranquil music to match. Claude built it, and for a while that was the room.</p>
+        </li>
+        <li class="turn">
+          <span class="tag">CHANGE 2</span>
+          <h3>Then I went back to the garage.</h3>
+          <p>Living with the glade, I found a game world pulled at my attention more than it settled it. A team garage is a place where people are working, which is the whole point of body doubling, so I went back to the garage and asked for silver trousers with a teal stripe on the crew.</p>
+        </li>
+        <li class="turn">
+          <span class="tag">CHANGE 3</span>
+          <h3>Painted art, picked and then dropped.</h3>
+          <p>I had Gemini generate background art, picked my favorites, and asked for a more British-Italian, more F1 and less NASCAR look. Then I reversed course. I liked the car drawn in code, rolling into the bay at the end of a stint, more than any painted background. The team became Corsa Britannia (fictional), with seven original crew members and new backstories.</p>
+        </li>
+        <li class="turn">
+          <span class="tag">CHANGE 4</span>
+          <h3>From a Claude artifact to a GitHub repo.</h3>
+          <p>The privacy question moved it off the artifact and onto GitHub Pages. I asked for a simple name and picked <code>pit-wall-focus-room</code>, Claude drafted the repo description, and then walked me through uploading the files and turning on Pages. The upload I did myself.</p>
+        </li>
+        <li class="turn">
+          <span class="tag">CHANGE 5</span>
+          <h3>Reviewing this page changed the tool.</h3>
+          <p>Reviewing a draft of this write-up against the build, I caught a claim that wasn't true yet: it said you could hover a crew member to read their backstory, and only the name of whoever was hosting the debrief had a tooltip. We fixed the tool to match, so now every crew member in the garage shows their story on hover, tap, or Tab. Using it that way, I wanted the garage to read like a real team, so I reworked the lineup to eight. Each driver got a race engineer (Isla Brennan for Marco, Noor Haddad for Luca), Theo stayed on as reserve, and Rocco Marchetti, the chief mechanic, took over the espresso machine behind the bar.</p>
+        </li>
+        <li>
+          <span class="tag">HONEST LIMITS</span>
+          <h3>Two things I asked for that it couldn't do.</h3>
+          <p>I wanted the crew to reply to what I'd actually done, but a static page can't ask a model, so the replies are random picks from twelve lines. I also asked for no repeated songs within a week. With ten tracks of about three minutes each, that isn't possible, and Claude said so instead of faking it. Now every track plays once before any repeats, and the order carries over if you reload.</p>
+        </li>
+      </ol>
+      <div class="legend"><span class="t">A change to the plan</span><span>A test or a limit</span></div>
+    </section>
+
+    <section>
+      <div class="sectlabel">What I built</div>
+      <h2>One task, one stint, one debrief.</h2>
+      <div class="prose">
+        <p>Type your one task and press Start focus. For 30 minutes the crew sits at the coffee bar and the monitors tick over. When the timer runs out, the car rolls into the bay and one of the crew asks how it went. Your answer goes on the scratch pad, and then you get a 5-minute break. (The Substack version runs 90 and 30. Thirty and five suits me better.)</p>
+      </div>
+      <figure class="dark">
+        <img src="/ai/assets/img/focus-room-ready.svg" width="1600" height="900" loading="lazy" alt="The garage at rest: a large task title at the top, a Corsa Britannia banner over three telemetry monitors, five crew members at a coffee bar, two standing, the chief mechanic behind the bar, an empty car bay, and a control panel with a 30:00 timer, Start focus button, and music and café volume sliders.">
+        <a class="fullsize" href="/ai/assets/img/focus-room-ready.svg">Open full size ↗</a>
+        <figcaption><b>Ready.</b> One task in big type, the crew at the coffee bar, and the controls in the corner.</figcaption>
+      </figure>
+      <figure class="dark">
+        <img src="/ai/assets/img/focus-room-debrief.svg" width="1600" height="900" loading="lazy" alt="Debrief: the red car is parked in the bay and a card from Marco Ventura, Driver #7, asks 'Thirty minutes is a proper stint. What came out of it?' above a text box and an Add to scratch pad button.">
+        <a class="fullsize" href="/ai/assets/img/focus-room-debrief.svg">Open full size ↗</a>
+        <figcaption><b>Debrief.</b> The car is in, and Marco Ventura, driver #7, asks what came out of the stint. Half-finished counts.</figcaption>
+      </figure>
+      <figure class="dark">
+        <img src="/ai/assets/img/focus-room-crew.svg" width="1600" height="900" loading="lazy" alt="The garage with a backstory card open over Rocco Marchetti, Chief Mechanic, who stands behind the coffee bar: twenty-five years of wheel guns and late nights, from a village outside Parma, runs the pit crew, and nobody else touches the espresso machine.">
+        <a class="fullsize" href="/ai/assets/img/focus-room-crew.svg">Open full size ↗</a>
+        <figcaption><b>Meet the crew.</b> Hover, tap, or Tab to anyone in the garage for their backstory. Here it's Rocco Marchetti, the chief mechanic behind the bar.</figcaption>
+      </figure>
+      <figure class="dark">
+        <img src="/ai/assets/img/focus-room-scratchpad.svg" width="1600" height="900" loading="lazy" alt="The debrief scratch pad open over the garage, showing two dated entries with the crew member's reply under each, and Copy all, Close, and a red-outlined Clear scratch pad button.">
+        <a class="fullsize" href="/ai/assets/img/focus-room-scratchpad.svg">Open full size ↗</a>
+        <figcaption><b>The scratch pad.</b> Every debrief, newest first, saved only on this device. The red button wipes it, but only after it asks.</figcaption>
+      </figure>
+      <p class="note">These figures are drawn from the tool's own SVG scene code rather than screenshots, so they stay sharp at any size. The task and debrief text in them are examples.</p>
+    </section>
+
+    <section>
+      <div class="sectlabel">How it works</div>
+      <h2>One file, and every line of it written in the cloud.</h2>
+      <div class="prose">
+        <p>I never set up anything on my own machine to build this. Claude wrote all of the code in a cloud session; I tried each version, asked for changes, and uploaded the result. The repo is one <code>index.html</code>, a README, and an audio folder with the ten tracks.</p>
+      </div>
+      <dl class="parts">
+        <div><dt>THE SCENE</dt><dd>The garage, the crew, and the car are SVG drawn in code, so a new theme is a conversation instead of a new set of images. The car waits off-screen and slides into the bay when a stint ends. If your device asks for reduced motion, the steam, the flickering monitors, and the roll-in all stand still.</dd></div>
+        <div><dt>THE TIMER</dt><dd>30 minutes on, 5 off. It saves the time the stint ends instead of counting seconds, so a background tab or a reload mid-stint doesn't lose any time. Pause saves what's left.</dd></div>
+        <div><dt>THE CREW</dt><dd>Eight original characters: the team principal, the technical director, two drivers with their race engineers, a reserve driver, and the chief mechanic behind the coffee bar. Hover or tap anyone in the garage to read their backstory, or Tab through them with a keyboard (screen readers read each one out). They take turns hosting the debrief, each asking in their own way, and the reply comes from a list of twelve lines, picked at random.</dd></div>
+        <div><dt>THE MUSIC</dt><dd>Ten lo-fi tracks I generated with Lyria in the Gemini app, about three minutes each, named for the garage (Espresso Bar, Night Pit Lane, Rain Delay, Last Stint). They shuffle so every track plays once before any repeats.</dd></div>
+        <div><dt>THE CAFÉ</dt><dd>No recording at all. The browser generates it live with the Web Audio API: a low room tone, a murmur that drifts up and down, a cup clink every so often, and a steam-wand hiss every few minutes. It has its own volume slider.</dd></div>
+        <div><dt>THE SCRATCH PAD</dt><dd>Saved in the browser's local storage, on this device only. Anything you type is shown as plain text, never treated as code. The clear confirmation puts your cursor on "Keep my entries," so the safe choice is the default, and Copy all lets you take everything with you first.</dd></div>
+        <div><dt>THE EDGES</dt><dd>Browsers won't play sound until you click, so if you reload mid-stint, a "Turn sound back on" button shows up. If a browser won't save data at all (some private modes), the page says so instead of quietly losing your entries. One gap I haven't fixed: on a phone held upright, the scene crops and the control panel covers the crew, so the backstory cards only work on a desktop or tablet for now.</dd></div>
+      </dl>
+    </section>
+
+    <section>
+      <div class="sectlabel">Lessons</div>
+      <h2>What I'd tell someone building their own.</h2>
+      <div class="lessons">
+        <div>
+          <h3>Draw it in code if you might change your mind.</h3>
+          <p>Swapping the theme in code took a conversation. The painted art meant generating, picking, and asking again, and I threw all of it away anyway.</p>
+        </div>
+        <div>
+          <h3>Test the assumption before you build on it.</h3>
+          <p>Checking Coffitivity first saved a version built around something that was never going to load, and what replaced it turned out better.</p>
+        </div>
+        <div>
+          <h3>Pick the platform that matches the promise.</h3>
+          <p>I wanted to be able to tell people their words stay on their device. The platform had to make that true, so privacy decided where it lives.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="close">
+    <h2>Claude wrote the code. The calls were mine.</h2>
+    <p>This is the "amplification, not replacement" idea from <a href="/ai/">my AI practice page</a>, at a small scale. Claude did the work I couldn't do quickly (SVG, Web Audio, edge cases I wouldn't have thought to ask about), tested before it built, and told me plainly when something I asked for wasn't possible.</p>
+    <p>I decided what the room should feel like, and I changed that decision every time the room didn't feel right. Five changes in, it finally does.</p>
+    <div class="nextlinks">
+      <a href="https://daynwj.github.io/pit-wall-focus-room/">Try Pit Wall Focus Room</a>
+      <a href="/ai/">AI practice</a>
+      <a href="/ai/design-time-logic/">Digital Sous Chef</a>
+      <a href="/ai/living-knowledge/">Living knowledge</a>
+    </div>
+    <p class="credits-line">Idea: Excellent AI Prompts · Code: Claude · Music: Lyria in the Gemini app · Team and crew: fictional</p>
+  </div>
+
+  <div class="foot">
+    <span>Dayn Johnson · Charlotte, NC</span>
+    <span><a href="https://daynwj.github.io/resume/">Resume</a> · <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a> · <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a></span>
+    <span class="stamp">First published <time datetime="2026-11">November 2026</time></span>
+  </div>
+
+</div>
+
+<a class="totop" href="#content" aria-label="Back to top"><span class="arr" aria-hidden="true">↑</span>Back to top</a>
+<script src="/ai/assets/site.js" defer></script>
+</body>
+</html>

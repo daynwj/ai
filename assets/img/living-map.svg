@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Map of the living knowledge system: me and Claude at the center, connected to the manifest, the household hub, the kitchen, the private hub, hobbies, and what writes back.">
+  <rect width="1000" height="600" fill="#FFFFFF"/>
+
+  <g stroke="#9AA1AA" stroke-width="1.4" fill="none">
+    <line x1="400" y1="270" x2="320" y2="130"/>
+    <line x1="400" y1="290" x2="320" y2="290"/>
+    <line x1="400" y1="310" x2="320" y2="450"/>
+    <line x1="600" y1="270" x2="680" y2="130"/>
+    <line x1="600" y1="290" x2="680" y2="290"/>
+    <line x1="600" y1="310" x2="680" y2="450"/>
+  </g>
+
+  <rect x="400" y="230" width="200" height="120" fill="#E10600"/>
+  <text x="500" y="276" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">Me and Claude</text>
+  <text x="500" y="302" text-anchor="middle" font-size="12.4" fill="#FFFFFF">One living source</text>
+  <text x="500" y="321" text-anchor="middle" font-size="12.4" fill="#FFFFFF">every project reads</text>
+
+  <g>
+    <rect x="60" y="70" width="260" height="120" fill="#EEF2FA" stroke="#0033A0" stroke-width="1.2"/>
+    <text x="80" y="100" font-size="15" font-weight="700" fill="#0033A0">The manifest</text>
+    <text x="80" y="126" font-size="12.4" fill="#2b2e33">Every project and skill</text>
+    <text x="80" y="148" font-size="12.4" fill="#2b2e33">Ideas not yet built</text>
+    <text x="80" y="170" font-size="12.4" fill="#2b2e33">Where each page lives</text>
+
+    <rect x="60" y="230" width="260" height="120" fill="#EEF2FA" stroke="#0033A0" stroke-width="1.2"/>
+    <text x="80" y="260" font-size="15" font-weight="700" fill="#0033A0">Household hub</text>
+    <text x="80" y="286" font-size="12.4" fill="#2b2e33">People, the spine</text>
+    <text x="80" y="308" font-size="12.4" fill="#2b2e33">Trips, activities, celebrations</text>
+    <text x="80" y="330" font-size="12.4" fill="#2b2e33">Home and subscriptions</text>
+
+    <rect x="60" y="390" width="260" height="120" fill="#EEF2FA" stroke="#0033A0" stroke-width="1.2"/>
+    <text x="80" y="420" font-size="15" font-weight="700" fill="#0033A0">Kitchen</text>
+    <text x="80" y="446" font-size="12.4" fill="#2b2e33">Recipes and cook log</text>
+    <text x="80" y="468" font-size="12.4" fill="#2b2e33">Pantry and food profile</text>
+    <text x="80" y="490" font-size="12.4" fill="#2b2e33">Kitchen reference</text>
+
+    <rect x="680" y="70" width="260" height="120" fill="#FFF3F2" stroke="#E10600" stroke-width="1.6"/>
+    <text x="700" y="100" font-size="15" font-weight="700" fill="#B0050A">Private hub</text>
+    <text x="700" y="126" font-size="12.4" fill="#2b2e33">Professional record</text>
+    <text x="700" y="148" font-size="12.4" fill="#2b2e33">AI enablement playbook</text>
+    <text x="700" y="170" font-size="12.4" fill="#2b2e33">Accuracy guardrails</text>
+
+    <rect x="680" y="230" width="260" height="120" fill="#EEF2FA" stroke="#0033A0" stroke-width="1.2"/>
+    <text x="700" y="260" font-size="15" font-weight="700" fill="#0033A0">Hobbies</text>
+    <text x="700" y="286" font-size="12.4" fill="#2b2e33">Card and tabletop games</text>
+    <text x="700" y="308" font-size="12.4" fill="#2b2e33">Video game builds</text>
+    <text x="700" y="330" font-size="12.4" fill="#2b2e33">Rules references</text>
+
+    <rect x="680" y="390" width="260" height="120" fill="#EEF2FA" stroke="#0033A0" stroke-width="1.2"/>
+    <text x="700" y="420" font-size="15" font-weight="700" fill="#0033A0">What writes back</text>
+    <text x="700" y="446" font-size="12.4" fill="#2b2e33">School updates, by a skill</text>
+    <text x="700" y="468" font-size="12.4" fill="#2b2e33">Recipes, when I ask</text>
+    <text x="700" y="490" font-size="12.4" fill="#2b2e33">A duplicate check first</text>
+  </g>
+
+  <rect x="60" y="548" width="14" height="14" fill="#EEF2FA" stroke="#0033A0" stroke-width="1.2"/>
+  <text x="84" y="560" font-size="12" fill="#5B6066">Shared with the household</text>
+  <rect x="290" y="548" width="14" height="14" fill="#FFF3F2" stroke="#E10600" stroke-width="1.6"/>
+  <text x="314" y="560" font-size="12" fill="#5B6066">Private to me</text>
+</svg>

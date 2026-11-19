@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" width="1000" height="720" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Ledger mapping five observed failures to what went wrong and the permanent rule each produced">
+  <rect width="1000" height="720" fill="#FFFFFF"/>
+
+  <text x="60" y="44" font-size="11.5" font-weight="700" fill="#E10600" letter-spacing="1.4">EVERY ONE OF THESE WAS FOUND BY A PERSON TESTING IT, NOT BY THE SYSTEM CHECKING ITSELF</text>
+
+  <text x="76" y="88" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHAT I SAW</text>
+  <text x="378" y="88" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.8">WHAT WENT WRONG</text>
+  <text x="676" y="88" font-size="11" font-weight="700" fill="#0033A0" letter-spacing="0.8">THE RULE IT PRODUCED</text>
+  <line x1="60" y1="102" x2="940" y2="102" stroke="#14161A" stroke-width="2"/>
+
+  <!-- row 1 : 102–212 -->
+  <text x="76" y="136" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Title and body text</tspan>
+    <tspan x="76" dy="19">both invisible</tspan>
+  </text>
+  <text x="378" y="136" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">The palette was a per-card</tspan>
+    <tspan x="378" dy="18">judgment call, and only body</tspan>
+    <tspan x="378" dy="18">painted a background.</tspan>
+  </text>
+  <rect x="660" y="118" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="136" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">Dark by default, not a</tspan>
+    <tspan x="676" dy="18">choice. Every container</tspan>
+    <tspan x="676" dy="18">paints its own.</tspan>
+  </text>
+  <line x1="60" y1="212" x2="940" y2="212" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 2 : 212–322 -->
+  <text x="76" y="246" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Raw HTML dumped</tspan>
+    <tspan x="76" dy="19">into the chat as text</tspan>
+  </text>
+  <text x="378" y="246" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">The skill didn't resolve, so the</tspan>
+    <tspan x="378" dy="18">build fell back to the inline</tspan>
+    <tspan x="378" dy="18">widget and skipped the pipeline.</tspan>
+  </text>
+  <rect x="660" y="228" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="246" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">File, never widget.</tspan>
+    <tspan x="676" dy="18">Promoted to audit</tspan>
+    <tspan x="676" dy="18">check number one.</tspan>
+  </text>
+  <line x1="60" y1="322" x2="940" y2="322" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 3 : 322–432 -->
+  <text x="76" y="356" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Card said it saved my</tspan>
+    <tspan x="76" dy="19">progress. It didn't.</tspan>
+  </text>
+  <text x="378" y="356" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">State survived an app switch but</tspan>
+    <tspan x="378" dy="18">not a close, and a button kept</tspan>
+    <tspan x="378" dy="18">pointing at markup that was gone.</tspan>
+  </text>
+  <rect x="660" y="338" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="356" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">No storage at all. If a</tspan>
+    <tspan x="676" dy="18">button can't do the</tspan>
+    <tspan x="676" dy="18">thing, don't draw it.</tspan>
+  </text>
+  <line x1="60" y1="432" x2="940" y2="432" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 4 : 432–542 -->
+  <text x="76" y="466" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">"Add the broth" —</tspan>
+    <tspan x="76" dy="19">without how much</tspan>
+  </text>
+  <text x="378" y="466" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">Amounts lived in the ingredient</tspan>
+    <tspan x="378" dy="18">list, so the step sent you back</tspan>
+    <tspan x="378" dy="18">a tab with wet hands.</tspan>
+  </text>
+  <rect x="660" y="448" width="4" height="62" fill="#0033A0"/>
+  <text x="676" y="466" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">Every value lives in the</tspan>
+    <tspan x="676" dy="18">step that uses it. No</tspan>
+    <tspan x="676" dy="18">threshold, no exception.</tspan>
+  </text>
+  <line x1="60" y1="542" x2="940" y2="542" stroke="#E4E6EA" stroke-width="1"/>
+
+  <!-- row 5 : 542–652, highlighted -->
+  <rect x="60" y="543" width="880" height="109" fill="#FFF4F3"/>
+  <text x="76" y="578" font-size="13.5" font-weight="600" fill="#14161A">
+    <tspan x="76" dy="0">Sauce whisked at step</tspan>
+    <tspan x="76" dy="19">three, over a hot skillet</tspan>
+  </text>
+  <text x="378" y="578" font-size="12.6" fill="#5B6066">
+    <tspan x="378" dy="0">Nothing was broken. The order</tspan>
+    <tspan x="378" dy="18">came from the source recipe and</tspan>
+    <tspan x="378" dy="18">nobody read ahead.</tspan>
+  </text>
+  <rect x="660" y="560" width="4" height="62" fill="#E10600"/>
+  <text x="676" y="578" font-size="12.6" font-weight="600" fill="#14161A">
+    <tspan x="676" dy="0">Write out a sequencing</tspan>
+    <tspan x="676" dy="18">pass before any HTML.</tspan>
+    <tspan x="676" dy="18">Read the whole recipe.</tspan>
+  </text>
+  <text x="76" y="640" font-size="12.2" fill="#B0050A" font-style="italic">The only one that wasn't a defect. No CSS rule catches it — it needed a habit, written down as a procedure.</text>
+
+  <!-- footer -->
+  <rect x="60" y="656" width="880" height="56" fill="#E10600"/>
+  <text x="500" y="681" text-anchor="middle" font-size="15.5" font-weight="600" fill="#FFFFFF">Fixing the card in front of me was never the point.</text>
+  <text x="500" y="702" text-anchor="middle" font-size="13" fill="#FFFFFF" opacity="0.85">Ten bugs, ten rules written back into the skill, so the next build can't reintroduce them.</text>
+</svg>

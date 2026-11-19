@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Before: four projects each holding their own out-of-sync copy of the same facts. Now: four projects reading from and writing to one Notion source.">
+  <rect width="1000" height="500" fill="#FFFFFF"/>
+  <line x1="500" y1="40" x2="500" y2="460" stroke="#E4E6EA" stroke-width="1.5"/>
+
+  <text x="60" y="62" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">BEFORE</text>
+  <text x="60" y="88" font-size="17" font-weight="700" fill="#14161A">Every project kept its own copy</text>
+
+  <g>
+    <rect x="60" y="120" width="180" height="120" fill="#FFFFFF" stroke="#14161A" stroke-width="1.2"/>
+    <text x="78" y="150" font-size="14" font-weight="700" fill="#14161A">Career</text>
+    <rect x="78" y="166" width="144" height="54" fill="#F4F5F7" stroke="#E4E6EA"/>
+    <text x="90" y="189" font-size="12" fill="#5B6066">Knowledge files</text>
+    <text x="90" y="208" font-size="12" font-weight="600" fill="#B0050A">updated in May</text>
+
+    <rect x="270" y="120" width="180" height="120" fill="#FFFFFF" stroke="#14161A" stroke-width="1.2"/>
+    <text x="288" y="150" font-size="14" font-weight="700" fill="#14161A">Household</text>
+    <rect x="288" y="166" width="144" height="54" fill="#F4F5F7" stroke="#E4E6EA"/>
+    <text x="300" y="189" font-size="12" fill="#5B6066">Knowledge files</text>
+    <text x="300" y="208" font-size="12" font-weight="600" fill="#B0050A">updated in July</text>
+
+    <rect x="60" y="264" width="180" height="120" fill="#FFFFFF" stroke="#14161A" stroke-width="1.2"/>
+    <text x="78" y="294" font-size="14" font-weight="700" fill="#14161A">Kitchen</text>
+    <rect x="78" y="310" width="144" height="54" fill="#F4F5F7" stroke="#E4E6EA"/>
+    <text x="90" y="333" font-size="12" fill="#5B6066">Knowledge files</text>
+    <text x="90" y="352" font-size="12" font-weight="600" fill="#B0050A">never updated</text>
+
+    <rect x="270" y="264" width="180" height="120" fill="#FFFFFF" stroke="#14161A" stroke-width="1.2"/>
+    <text x="288" y="294" font-size="14" font-weight="700" fill="#14161A">Hobbies</text>
+    <rect x="288" y="310" width="144" height="54" fill="#F4F5F7" stroke="#E4E6EA"/>
+    <text x="300" y="333" font-size="12" fill="#5B6066">Knowledge files</text>
+    <text x="300" y="352" font-size="12" font-weight="600" fill="#B0050A">updated in June</text>
+  </g>
+  <text x="60" y="424" font-size="12.4" fill="#5B6066">
+    <tspan x="60" dy="0">The same facts in four places. I updated each</tspan>
+    <tspan x="60" dy="19">copy by hand, when I remembered.</tspan>
+  </text>
+
+  <text x="550" y="62" font-size="11" font-weight="700" fill="#E10600" letter-spacing="0.6">NOW</text>
+  <text x="550" y="88" font-size="17" font-weight="700" fill="#14161A">One source, read and written by Claude</text>
+
+  <rect x="660" y="210" width="200" height="84" fill="#E10600"/>
+  <text x="760" y="245" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">Notion</text>
+  <text x="760" y="268" text-anchor="middle" font-size="12" fill="#FFFFFF">Hubs and databases</text>
+
+  <g font-size="13" font-weight="700" fill="#FFFFFF">
+    <rect x="550" y="120" width="140" height="44" fill="#0033A0"/>
+    <text x="620" y="147" text-anchor="middle">Career</text>
+    <rect x="830" y="120" width="140" height="44" fill="#0033A0"/>
+    <text x="900" y="147" text-anchor="middle">Household</text>
+    <rect x="550" y="340" width="140" height="44" fill="#0033A0"/>
+    <text x="620" y="367" text-anchor="middle">Kitchen</text>
+    <rect x="830" y="340" width="140" height="44" fill="#0033A0"/>
+    <text x="900" y="367" text-anchor="middle">Hobbies</text>
+  </g>
+  <g stroke="#14161A" stroke-width="1.4" fill="none">
+    <line x1="640" y1="166" x2="700" y2="206"/>
+    <line x1="880" y1="166" x2="820" y2="206"/>
+    <line x1="640" y1="338" x2="700" y2="298"/>
+    <line x1="880" y1="338" x2="820" y2="298"/>
+  </g>
+  <g fill="#14161A">
+    <circle cx="640" cy="166" r="3"/><circle cx="700" cy="206" r="3"/>
+    <circle cx="880" cy="166" r="3"/><circle cx="820" cy="206" r="3"/>
+    <circle cx="640" cy="338" r="3"/><circle cx="700" cy="298" r="3"/>
+    <circle cx="880" cy="338" r="3"/><circle cx="820" cy="298" r="3"/>
+  </g>
+  <text x="550" y="424" font-size="12.4" fill="#5B6066">
+    <tspan x="550" dy="0">Every project reads the same rows. When something</tspan>
+    <tspan x="550" dy="19">changes, Claude updates the row once.</tspan>
+  </text>
+</svg>

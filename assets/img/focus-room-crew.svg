@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="t d" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif"><title id="t">Meet the crew</title><desc id="d">A backstory card over Rocco Marchetti, the chief mechanic behind the coffee bar.</desc><defs><linearGradient id="dimGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset=".6" stop-color="#000" stop-opacity="0"/></linearGradient></defs><style>.steam path{fill:none;stroke:rgba(255,255,255,.22);stroke-width:3;stroke-linecap:round}#car{transform:translateX(1100px)}.figure.on .kit{filter:url(#hostGlow)}</style>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1015"></stop><stop offset="1" stop-color="#171b22"></stop></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22262e"></stop><stop offset="1" stop-color="#101216"></stop></linearGradient>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050913"></stop><stop offset=".75" stop-color="#0c1a3d"></stop><stop offset="1" stop-color="#1b2a52"></stop></linearGradient>
+    <radialGradient id="pool" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd9a8" stop-opacity=".28"></stop><stop offset="1" stop-color="#ffd9a8" stop-opacity="0"></stop></radialGradient>
+    <radialGradient id="screenPool" cx=".5" cy="0" r=".8"><stop offset="0" stop-color="#5a86ff" stop-opacity=".18"></stop><stop offset="1" stop-color="#5a86ff" stop-opacity="0"></stop></radialGradient>
+    <filter id="hostGlow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#fff" flood-opacity=".45"></feDropShadow></filter>
+  </defs>
+
+  <g id="backdrop">
+    <rect width="1600" height="640" fill="url(#wall)"></rect>
+    <g stroke="#1e232c" stroke-width="2">
+      <line x1="280" y1="0" x2="280" y2="640"></line><line x1="560" y1="0" x2="560" y2="640"></line>
+      <line x1="840" y1="0" x2="840" y2="640"></line><line x1="1120" y1="0" x2="1120" y2="640"></line>
+    </g>
+    <g fill="#e9eef7" opacity=".55"><rect x="150" y="18" width="220" height="5" rx="2"></rect><rect x="690" y="18" width="220" height="5" rx="2"></rect><rect x="1100" y="18" width="200" height="5" rx="2"></rect></g>
+
+    <!-- team banner: red, blue, thin teal line -->
+    <g transform="translate(0 100)">
+      <rect x="600" y="88" width="660" height="54" fill="#D40000"></rect>
+      <rect x="600" y="142" width="660" height="10" fill="#0033A0"></rect>
+      <rect x="600" y="155" width="660" height="4" fill="#00A19C"></rect>
+      <text id="bannerText" x="930" y="125" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-weight="700" font-size="30" letter-spacing="9">CORSA BRITANNIA</text>
+    </g>
+
+    <!-- garage door onto a night pit lane -->
+    <rect x="1330" y="160" width="270" height="480" fill="url(#night)"></rect>
+    <rect x="1330" y="160" width="270" height="14" fill="#2a2f38"></rect>
+    <g fill="#ffe2b0" opacity=".7"><circle cx="1400" cy="300" r="3"></circle><circle cx="1490" cy="290" r="3"></circle><circle cx="1570" cy="305" r="3"></circle></g>
+    <rect x="1330" y="600" width="270" height="40" fill="#0f1830"></rect>
+    <rect x="1330" y="612" width="270" height="3" fill="#fff" opacity=".35"></rect>
+
+    <!-- floor + bay box: red, blue, teal inner line -->
+    <rect y="640" width="1600" height="260" fill="url(#floor)"></rect>
+    <rect x="500" y="700" width="640" height="130" fill="none" stroke="#D40000" stroke-width="3" opacity=".6"></rect>
+    <rect x="512" y="712" width="616" height="106" fill="none" stroke="#0033A0" stroke-width="2" opacity=".6"></rect>
+    <rect x="522" y="722" width="596" height="86" fill="none" stroke="#00A19C" stroke-width="1.5" opacity=".55"></rect>
+
+    <!-- silver tool chests + tyre stack under warmer blankets -->
+    <g fill="#8f98a3"><rect x="1160" y="560" width="70" height="80" rx="4"></rect><rect x="1238" y="580" width="44" height="60" rx="4"></rect></g>
+    <g stroke="#6c747e" stroke-width="2"><line x1="1166" y1="582" x2="1224" y2="582"></line><line x1="1166" y1="604" x2="1224" y2="604"></line><line x1="1244" y1="604" x2="1276" y2="604"></line></g>
+    <g fill="#1b1d22" stroke="#2c313b" stroke-width="3"><rect x="1288" y="560" width="70" height="26" rx="10"></rect><rect x="1288" y="588" width="70" height="26" rx="10"></rect><rect x="1288" y="616" width="70" height="26" rx="10"></rect></g>
+    <rect x="1288" y="566" width="70" height="4" fill="#00A19C" opacity=".85"></rect>
+
+    <!-- coffee bar -->
+    <ellipse cx="290" cy="520" rx="340" ry="190" fill="url(#pool)"></ellipse>
+    <g id="behindBar"><g class="figure on" data-id="rocco" transform="translate(450 438)"><rect x="-14" y="44" width="11" height="76" rx="4" fill="#C0C5CC"></rect><rect x="3" y="44" width="11" height="76" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-6" y="46" width="2" height="72" fill="#00A19C"></rect><rect x="11" y="46" width="2" height="72" fill="#00A19C"></rect>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#0033A0"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#D40000" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g></g>
+    <rect x="40" y="470" width="500" height="170" fill="#191c22"></rect>
+    <rect x="40" y="470" width="500" height="8" fill="#D40000"></rect>
+    <rect x="40" y="478" width="500" height="3" fill="#0033A0"></rect>
+    <g>
+      <rect x="96" y="384" width="170" height="86" rx="8" fill="#9aa2ac"></rect>
+      <rect x="96" y="384" width="170" height="12" rx="6" fill="#c6ccd3"></rect>
+      <rect x="120" y="436" width="22" height="18" fill="#3a3f48"></rect><rect x="170" y="436" width="22" height="18" fill="#3a3f48"></rect><rect x="220" y="436" width="22" height="18" fill="#3a3f48"></rect>
+      <circle cx="248" cy="408" r="8" fill="#00A19C"></circle>
+      <rect x="290" y="440" width="18" height="30" rx="3" fill="#e9e9e9"></rect><rect x="314" y="446" width="18" height="24" rx="3" fill="#e9e9e9"></rect>
+    </g>
+    <rect x="320" y="360" width="200" height="6" fill="#2b3038"></rect>
+    <g fill="#2f3640"><rect x="332" y="330" width="26" height="30" rx="4"></rect><rect x="368" y="322" width="26" height="38" rx="4"></rect><rect x="404" y="334" width="26" height="26" rx="4"></rect></g>
+  </g>
+
+  <!-- monitors on a gantry -->
+  <g id="monitors" transform="translate(0 100)">
+    <rect x="610" y="196" width="640" height="8" fill="#2a2f38"></rect>
+    <ellipse cx="930" cy="330" rx="380" ry="150" fill="url(#screenPool)"></ellipse>
+    <g class="screen-glow"><rect x="640" y="214" width="180" height="108" rx="4" fill="#0a1430" stroke="#2a2f38" stroke-width="4"></rect>
+      <polyline class="trace" points="650,300 680,280 710,290 740,250 770,262 800,236 812,240" fill="none" stroke="#7FA2FF" stroke-width="2"></polyline>
+      <polyline points="650,310 812,310" stroke="#D40000" stroke-width="2" opacity=".6"></polyline></g>
+    <g class="screen-glow b"><rect x="840" y="214" width="180" height="108" rx="4" fill="#0a1430" stroke="#2a2f38" stroke-width="4"></rect>
+      <g fill="#7FA2FF" opacity=".8"><rect x="856" y="236" width="70" height="6"></rect><rect x="856" y="252" width="110" height="6"></rect><rect x="856" y="268" width="90" height="6"></rect><rect x="856" y="284" width="120" height="6"></rect></g>
+      <rect x="980" y="236" width="24" height="70" fill="#00A19C" opacity=".75"></rect></g>
+    <g class="screen-glow c"><rect x="1040" y="214" width="180" height="108" rx="4" fill="#0a1430" stroke="#2a2f38" stroke-width="4"></rect>
+      <polyline class="trace" points="1050,260 1080,270 1110,240 1140,300 1170,268 1200,276 1212,262" fill="none" stroke="#ff6b6b" stroke-width="2"></polyline></g>
+  </g>
+
+  <g id="crewLayer"><g class="figure" data-id="marco" transform="translate(90 560)"><rect x="-16" y="44" width="34" height="11" rx="4" fill="#C0C5CC"></rect><rect x="10" y="44" width="10" height="34" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-14" y="52" width="30" height="2" fill="#00A19C"></rect><rect x="17" y="46" width="2" height="30" fill="#00A19C"></rect>
+         <rect x="-5" y="64" width="4" height="40" fill="#555b66"></rect><ellipse cx="-3" cy="62" rx="20" ry="5" fill="#3a3f48"></ellipse>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#D40000"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#0033A0" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g><g class="figure" data-id="isla" transform="translate(170 560)"><rect x="-16" y="44" width="34" height="11" rx="4" fill="#C0C5CC"></rect><rect x="10" y="44" width="10" height="34" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-14" y="52" width="30" height="2" fill="#00A19C"></rect><rect x="17" y="46" width="2" height="30" fill="#00A19C"></rect>
+         <rect x="-5" y="64" width="4" height="40" fill="#555b66"></rect><ellipse cx="-3" cy="62" rx="20" ry="5" fill="#3a3f48"></ellipse>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#0033A0"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#D40000" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g><g class="figure" data-id="theo" transform="translate(250 560)"><rect x="-16" y="44" width="34" height="11" rx="4" fill="#C0C5CC"></rect><rect x="10" y="44" width="10" height="34" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-14" y="52" width="30" height="2" fill="#00A19C"></rect><rect x="17" y="46" width="2" height="30" fill="#00A19C"></rect>
+         <rect x="-5" y="64" width="4" height="40" fill="#555b66"></rect><ellipse cx="-3" cy="62" rx="20" ry="5" fill="#3a3f48"></ellipse>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#D40000"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#0033A0" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g><g class="figure" data-id="noor" transform="translate(330 560)"><rect x="-16" y="44" width="34" height="11" rx="4" fill="#C0C5CC"></rect><rect x="10" y="44" width="10" height="34" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-14" y="52" width="30" height="2" fill="#00A19C"></rect><rect x="17" y="46" width="2" height="30" fill="#00A19C"></rect>
+         <rect x="-5" y="64" width="4" height="40" fill="#555b66"></rect><ellipse cx="-3" cy="62" rx="20" ry="5" fill="#3a3f48"></ellipse>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#D40000"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#0033A0" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g><g class="figure" data-id="luca" transform="translate(410 560)"><rect x="-16" y="44" width="34" height="11" rx="4" fill="#C0C5CC"></rect><rect x="10" y="44" width="10" height="34" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-14" y="52" width="30" height="2" fill="#00A19C"></rect><rect x="17" y="46" width="2" height="30" fill="#00A19C"></rect>
+         <rect x="-5" y="64" width="4" height="40" fill="#555b66"></rect><ellipse cx="-3" cy="62" rx="20" ry="5" fill="#3a3f48"></ellipse>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#0033A0"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#D40000" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g><g class="figure" data-id="giulia" transform="translate(600 520)"><rect x="-14" y="44" width="11" height="76" rx="4" fill="#C0C5CC"></rect><rect x="3" y="44" width="11" height="76" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-6" y="46" width="2" height="72" fill="#00A19C"></rect><rect x="11" y="46" width="2" height="72" fill="#00A19C"></rect>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#D40000"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#0033A0" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g><g class="figure" data-id="alistair" transform="translate(670 520)"><rect x="-14" y="44" width="11" height="76" rx="4" fill="#C0C5CC"></rect><rect x="3" y="44" width="11" height="76" rx="4" fill="#C0C5CC"></rect>
+         <rect x="-6" y="46" width="2" height="72" fill="#00A19C"></rect><rect x="11" y="46" width="2" height="72" fill="#00A19C"></rect>
+      <g class="kit"><rect x="-20" y="-6" width="40" height="54" rx="14" fill="#0033A0"></rect>
+      <rect x="-20" y="14" width="40" height="5" fill="#D40000" opacity=".9"></rect></g>
+      <circle cx="0" cy="-22" r="15" fill="#c9a98a"></circle><path d="M-15 -26 Q 0 -44 15 -26 Z" fill="#2a2220"></path>
+      <rect x="14" y="16" width="10" height="12" rx="2" fill="#f2f2f2"></rect></g></g>
+
+  <g class="steam" transform="translate(150 330)"><path d="M0 40 C -8 28, 8 18, 0 4"></path><path d="M22 40 C 14 28, 30 18, 22 4"></path><path d="M44 40 C 36 28, 52 18, 44 4"></path></g>
+
+  <!-- the car: parked off-screen right, drives into the bay at session end -->
+  <g id="car"><g transform="translate(560 716)">
+    <ellipse cx="250" cy="92" rx="270" ry="10" fill="#000" opacity=".45"></ellipse>
+    <rect x="0" y="6" width="34" height="8" fill="#0033A0"></rect><rect x="14" y="14" width="8" height="36" fill="#222"></rect>
+    <path d="M8 66 L40 50 L170 44 L230 26 L300 24 L330 42 L470 46 L520 58 L520 72 L8 74 Z" fill="#D40000"></path>
+    <path d="M40 60 L470 60 L470 64 L40 66 Z" fill="#0033A0"></path>
+    <path d="M60 55 L460 53 L460 55.5 L60 57.5 Z" fill="#00A19C"></path>
+    <path d="M232 28 Q 265 6 300 26" fill="none" stroke="#C0C5CC" stroke-width="6"></path>
+    <rect x="490" y="70" width="44" height="6" fill="#111"></rect>
+    <g fill="#0d0d0f" stroke="#2a2a2e" stroke-width="4"><circle cx="96" cy="72" r="30"></circle><circle cx="420" cy="72" r="30"></circle></g>
+    <g fill="#C0C5CC"><circle cx="96" cy="72" r="6"></circle><circle cx="420" cy="72" r="6"></circle></g>
+  </g></g>
+<text x="800" y="40" font-size="13" fill="#A9B0BC" font-weight="600" text-anchor="middle" letter-spacing="2.6">YOUR ONE TASK</text><text x="800" y="104" font-size="60" fill="#F4F5F7" font-weight="700" text-anchor="middle">Outline the onboarding emails</text><rect x="520" y="124" width="560" height="46" rx="10" fill="rgba(10,12,16,.8)" stroke="#00A19C" stroke-width="2"/><text x="540" y="153" font-size="17" fill="#F4F5F7" font-weight="400" text-anchor="start">Outline the onboarding emails</text><rect x="1222" y="500" width="356" height="384" rx="16" fill="#0d0f14" stroke="rgba(255,255,255,.14)"/><circle cx="1279" cy="560" r="32" fill="none" stroke="#252a33" stroke-width="6"/><circle cx="1279" cy="560" r="32" fill="none" stroke="#D40000" stroke-width="6"/><rect x="1330" y="532" width="62" height="20" rx="6" fill="#2a2f38"/><text x="1361" y="546" font-size="11" fill="#A9B0BC" font-weight="700" text-anchor="middle" letter-spacing="1.3">READY</text><text x="1330" y="588" font-size="34" fill="#F4F5F7" font-weight="700" text-anchor="start">30:00</text><text x="1242" y="628" font-size="13.5" fill="#A9B0BC" font-weight="400" text-anchor="start">30 minutes on, 5 off. The crew stays quiet</text><text x="1242" y="647" font-size="13.5" fill="#A9B0BC" font-weight="400" text-anchor="start">until the car comes in.</text><rect x="1242" y="664" width="316" height="40" rx="10" fill="#D40000" stroke="#D40000"/><text x="1400.0" y="689.0" font-size="15" fill="#fff" font-weight="600" text-anchor="middle">Start focus</text><path d="M1242 722 H1558" stroke="rgba(255,255,255,.14)"/><text x="1242" y="750" font-size="13.5" fill="#A9B0BC" font-weight="400" text-anchor="start">Lo-fi music</text><text x="1558" y="750" font-size="13.5" fill="#F4F5F7" font-weight="600" text-anchor="end">45%</text><rect x="1242" y="764" width="316" height="6" rx="3" fill="#2a2f38"/><rect x="1242" y="764" width="142.20000000000002" height="6" rx="3" fill="#00A19C"/><circle cx="1384.2" cy="767" r="8" fill="#00A19C"/><text x="1242" y="808" font-size="13.5" fill="#A9B0BC" font-weight="400" text-anchor="start">Garage café</text><text x="1558" y="808" font-size="13.5" fill="#F4F5F7" font-weight="600" text-anchor="end">25%</text><rect x="1242" y="822" width="316" height="6" rx="3" fill="#2a2f38"/><rect x="1242" y="822" width="79.0" height="6" rx="3" fill="#00A19C"/><circle cx="1321.0" cy="825" r="8" fill="#00A19C"/><path d="M1242 842 H1558" stroke="rgba(255,255,255,.14)"/><text x="1242" y="868" font-size="13.5" fill="#A9B0BC" font-weight="400" text-anchor="start">Scratch pad: empty</text><text x="1558" y="868" font-size="13.5" fill="#3FD6CF" font-weight="400" text-anchor="end">Open scratch pad</text><path d="M1450 872 H1558" stroke="#3FD6CF"/><rect x="330" y="214" width="300" height="150" rx="10" fill="#0d0f14" stroke="rgba(255,255,255,.14)"/><path d="M340 214 H620" stroke="#00A19C" stroke-width="3"/><text x="344" y="242" font-size="16" fill="#F4F5F7" font-weight="700" text-anchor="start">Rocco Marchetti</text><text x="344" y="261" font-size="12.5" fill="#A9B0BC" font-weight="400" text-anchor="start">Chief Mechanic</text><text x="344" y="286" font-size="13.5" fill="#F4F5F7" font-weight="400" text-anchor="start">Twenty-five years of wheel guns and late</text><text x="344" y="305" font-size="13.5" fill="#F4F5F7" font-weight="400" text-anchor="start">nights, from a village outside Parma. Runs</text><text x="344" y="324" font-size="13.5" fill="#F4F5F7" font-weight="400" text-anchor="start">the pit crew, and nobody else touches the</text><text x="344" y="343" font-size="13.5" fill="#F4F5F7" font-weight="400" text-anchor="start">espresso machine.</text><path d="M471.0 364 L480.0 376 L489.0 364" fill="#0d0f14" stroke="rgba(255,255,255,.14)"/></svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="Inter, system-ui, -apple-system, sans-serif" role="img" aria-label="Timeline from AI skeptic in early 2023 to a load-bearing practice in 2026">
+  <rect width="1000" height="560" fill="#FFFFFF"/>
+
+  <line x1="60" y1="230" x2="940" y2="230" stroke="#E4E6EA" stroke-width="2"/>
+  <line x1="215" y1="230" x2="400" y2="230" stroke="#E10600" stroke-width="3"/>
+
+  <!-- 1 — early 2023 -->
+  <circle cx="105" cy="230" r="7" fill="#0033A0"/>
+  <text x="105" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">EARLY 2023</text>
+  <text x="105" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Skeptic</text>
+  <text x="105" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="105" dy="0">A better Google. I</tspan>
+    <tspan x="105" dy="19">kept going back to</tspan>
+    <tspan x="105" dy="19">actual Google.</tspan>
+  </text>
+  <text x="105" y="400" text-anchor="middle" font-size="11.5" fill="#9AA1AA" font-style="italic">
+    <tspan x="105" dy="0">No AI tooling at work.</tspan>
+    <tspan x="105" dy="17">All of it personal.</tspan>
+  </text>
+
+  <!-- 2 — the turn -->
+  <circle cx="305" cy="230" r="15" fill="#E10600"/>
+  <circle cx="305" cy="230" r="24" fill="none" stroke="#E10600" stroke-width="1.5" opacity="0.35"/>
+  <text x="305" y="130" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14161A">I let it interview me</text>
+  <text x="305" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#E10600" letter-spacing="0.6">JULY 2025 — THE TURN</text>
+  <text x="305" y="284" text-anchor="middle" font-size="13" font-weight="600" fill="#14161A">
+    <tspan x="305" dy="0">A Reddit post on having</tspan>
+    <tspan x="305" dy="19">Gemini ask the questions.</tspan>
+  </text>
+  <text x="305" y="342" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="305" dy="0">Background, expertise,</tspan>
+    <tspan x="305" dy="19">writing samples, resume.</tspan>
+  </text>
+  <text x="305" y="400" text-anchor="middle" font-size="11.5" fill="#9AA1AA" font-style="italic">
+    <tspan x="305" dy="0">Same model.</tspan>
+    <tspan x="305" dy="17">Now it had context.</tspan>
+  </text>
+
+  <!-- 3 — next six months -->
+  <circle cx="520" cy="230" r="7" fill="#0033A0"/>
+  <text x="520" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">NEXT SIX MONTHS</text>
+  <text x="520" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Building constantly</text>
+  <text x="520" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="520" dy="0">A lifecycle email planner</tspan>
+    <tspan x="520" dy="19">trained on hundreds of</tspan>
+    <tspan x="520" dy="19">real sends.</tspan>
+  </text>
+  <line x1="520" y1="374" x2="520" y2="450" stroke="#E10600" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="378" y="450" width="284" height="76" fill="#FFF4F3" stroke="#E10600" stroke-width="1"/>
+  <rect x="378" y="450" width="4" height="76" fill="#E10600"/>
+  <text x="398" y="476" font-size="10.6" font-weight="700" fill="#B0050A" letter-spacing="0.5">THEN THE SAME THING BROKE IT</text>
+  <text x="398" y="498" font-size="11.4" fill="#B0050A">
+    <tspan x="398" dy="0">So much context it started using it</tspan>
+    <tspan x="398" dy="16">where nobody asked. Cast iron. Destiny.</tspan>
+  </text>
+
+  <!-- 4 — feb 2026 -->
+  <circle cx="725" cy="230" r="7" fill="#0033A0"/>
+  <text x="725" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">FEBRUARY 2026</text>
+  <text x="725" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Things persisted</text>
+  <text x="725" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="725" dy="0">Moved to Claude and</tspan>
+    <tspan x="725" dy="19">started building projects</tspan>
+    <tspan x="725" dy="19">that remember.</tspan>
+  </text>
+
+  <!-- 5 — now -->
+  <circle cx="900" cy="230" r="7" fill="#0033A0"/>
+  <text x="900" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#5B6066" letter-spacing="0.6">NOW</text>
+  <text x="900" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#14161A">Load-bearing</text>
+  <text x="900" y="308" text-anchor="middle" font-size="12.4" fill="#5B6066">
+    <tspan x="900" dy="0">One living knowledge</tspan>
+    <tspan x="900" dy="19">base. Every project</tspan>
+    <tspan x="900" dy="19">reads the same source.</tspan>
+  </text>
+</svg>

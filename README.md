@@ -12,17 +12,19 @@ unpack-ai/index.html          Everyone I've helped with AI started by talking it
 living-knowledge/index.html   Every project reads the same source now
 design-time-logic/index.html  Digital Sous Chef
 focus-room/index.html         Pit Wall Focus Room write-up
+creature-adventure/index.html Creature Adventure write-up (images load from the game's repo)
 assets/site.css               one stylesheet for every page
 assets/site.js                back-to-top button
 assets/img/                   SVG figures, plus two PNG share images (LinkedIn needs PNG)
 ```
 
-Plain HTML, no build step. The nav and footer are repeated in each page, so a change to them means editing all five files.
+Plain HTML, no build step. The nav and footer are repeated in each page, so a change to them means editing all six files.
 
 ## Off-shoots (their own repos)
 
 - Resume: https://daynwj.github.io/resume/
 - Pit Wall Focus Room (the tool): https://daynwj.github.io/pit-wall-focus-room/
+- Creature Adventure (the game): https://daynwj.github.io/creature-adventure-game/
 
 ## Old addresses
 

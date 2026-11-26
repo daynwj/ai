@@ -98,7 +98,7 @@
       </ol>
       <figure style="max-width:620px">
         <img src="https://daynwj.github.io/creature-adventure-game/story/evolutions.jpg" width="1400" height="1800" loading="lazy" alt="A chart of all six creatures – Fire, Water, Grass, Electric, Dragon, and Steel – at three Power Up stages. Each is a round blob with bat wings, circle hands and feet, and its own belly mark. Stage 2 adds horns and a tail; stage 3 adds long horns, a forehead gem, and a glow. Each stage is labeled with its move.">
-        <figcaption><b>Six creatures, three stages each.</b> One drawing in code, with a short list that gives each type its colors, belly mark, world, and moves. The move names are placeholders until the lead designer renames them.</figcaption>
+        <figcaption><b>Six creatures, three stages each.</b> One drawing in code, with a short list that gives each type its colors, belly mark, world, and moves. The move names are placeholders.</figcaption>
       </figure>
     </section>
 
@@ -150,14 +150,29 @@
         <p>It's plain HTML, CSS, and JavaScript on GitHub Pages: no game engine, no server, no sign-in. It plays on an iPad, on an iPhone turned sideways, and on a computer.</p>
       </div>
       <dl class="parts">
-        <div><dt>ADVENTURE</dt><dd>Three worlds, each with four levels and then a boss. In the levels, you land on minions to free captured friends, and each friend's home becomes a checkpoint. Rescued friends give you items for the boss fight. Bosses send high and low attacks, and a full energy bar fires your creature's move at the boss's weak spots. Your creature Powers Up after each boss.</dd></div>
-        <div><dt>ZEN</dt><dd>Endless and calm, with no way to lose and a best distance to beat.</dd></div>
+        <div><dt>ADVENTURE</dt><dd>Three worlds, each with four levels and then a boss. In the levels, you land on minions to free captured friends, and each friend's home becomes a checkpoint. Rescued friends give you items for the boss fight. Bosses send high and low attacks, and a full energy bar fires your creature's move at the boss's weak spots. Beating a boss unlocks a Power Up, and you watch it happen back at camp.</dd></div>
+        <div><dt>CAMP</dt><dd>Where every level ends. The trainer, the other five creatures, an energy meter, a matching game that refills it, and a workout corner.</dd></div>
+        <div><dt>ZEN</dt><dd>Endless and calm, with no way to lose and a best distance to beat. A practice boss switch lets you try a boss battle with nothing at stake.</dd></div>
         <div><dt>NAMES</dt><dd>Players can name their creature or keep the type name. His idea.</dd></div>
         <div><dt>THE ART</dt><dd>Every creature, world, and trainer is drawn in code: circles, triangles, and curves. All original.</dd></div>
         <div><dt>THE MUSIC</dt><dd>Ten tracks I made with Lyria in the Gemini app, reused from the focus room.</dd></div>
-        <div><dt>THE CODE</dt><dd>About 1,100 lines across seven small JavaScript files, each with one job: the knobs (the numbers, colors, and move names that are safe to change, kept in the code on purpose, with no in-game controls), the creatures, the trainer, the worlds, the levels, the bosses, and one file that ties it together.</dd></div>
-        <div><dt>SAVES</dt><dd>Progress, names, and best distance stay in the browser on your own device. Nothing gets sent anywhere.</dd></div>
+        <div><dt>THE CODE</dt><dd>About 1,400 lines across eight small JavaScript files, each with one job: the knobs (the numbers, colors, and move names that are safe to change, kept in the code on purpose, with no in-game controls), the creatures, the trainer, the worlds, the levels, the bosses, the camp, and one file that ties it together.</dd></div>
+        <div><dt>SAVES</dt><dd>Progress, names, energy, and best distance stay in the browser on your own device. Nothing gets sent anywhere.</dd></div>
       </dl>
+    </section>
+
+    <section>
+      <div class="sectlabel">Round two</div>
+      <h2>After a few worlds, we had a second list.</h2>
+      <div class="prose">
+        <p>Once he'd played a few worlds, we had a new round of ideas, and we shipped them as one bigger update. Every level now ends at camp. The trainer is there, dressed for whatever world you're in, and so are the other five creatures – two by the campfire, one at the matching table, and two in a workout corner doing jumping jacks and lifting a dumbbell. Each visit, they show up at a random Power Up stage.</p>
+        <p>Camp came with an energy meter. Each creature has three bolts, and every level uses one. They come back on their own, one every two minutes, or you can play the matching game (six pairs, no timer, no way to lose) to fill them right back up. The matching game was his idea from the first round, and now it has a job. The first version of camp didn't make that obvious, so a big prompt across the top now says what to do next: run again when energy is full, play the matching game when it's low.</p>
+        <p>The Power Up moved to camp, too. Beating a boss unlocks it, and back at camp your creature glows until you tap it, so the evolution gets its own moment. Zen picked up a practice boss switch: the same boss battle, with nothing to lose.</p>
+      </div>
+      <figure class="dark">
+        <img src="https://daynwj.github.io/creature-adventure-game/story/camp.jpg" width="1180" height="820" loading="lazy" alt="The camp in the Treasure Cave: the trainer in a wizard hat beside the purple Dragon creature, which glows with stars under a big 'Tap me!' speech bubble. Other creatures sit by a campfire, wait at a table of cards, and work out on a mat, with 'Matching game' and 'Workout corner' labels on the ground under each corner. A big prompt across the top says the Dragon is ready to Power Up, with two of three energy bolts lit, above buttons for Power Up, Matching game, and Main menu.">
+        <figcaption><b>Back at camp after a boss.</b> The Dragon is glowing and ready to Power Up, with two of its three energy bolts left.</figcaption>
+      </figure>
     </section>
 
     <section>
@@ -173,6 +188,7 @@
 
   <div class="close">
     <h2>He's already planning the next one.</h2>
+    <p>A few of his ideas are still on the list: a relay mode where a tired creature rests at camp while the next one runs, a choice of trainer, and a real gym to go with the workout corner.</p>
     <p>He has more game ideas, he wants to build a 3D game next, and he's started talking about being a game designer. He's 9½, and he's already thinking about what he could do with this technology.</p>
     <p>That's the part I care about most: the creativity this opens up for him, and what the two of us can build together.</p>
     <div class="nextlinks">
@@ -187,7 +203,7 @@
   <div class="foot">
     <span>Dayn Johnson · Charlotte, NC</span>
     <span><a href="https://daynwj.github.io/resume/">Resume</a> · <a href="https://linkedin.com/in/daynjohnson">LinkedIn</a> · <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a></span>
-    <span class="stamp">First published <time datetime="2026-11">November 2026</time></span>
+    <span class="stamp">First published <time datetime="2026-11">November 2026</time> · Updated <time datetime="2026-11-26">November 26, 2026</time></span>
   </div>
 
 </div>
